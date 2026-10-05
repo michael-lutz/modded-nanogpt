@@ -8,6 +8,7 @@ This is a research protocol and evidence index, not an implemented GPU experimen
 - [Track 3 history and Track 1 optimizer lineage](HISTORY.md)
 - [Local reproduction measurements](baselines.json)
 - [Machine-readable upstream history](history.json)
+- [GH200 full-table CPU-memory feasibility measurement](benchmarks/RESULTS_2026_10_05.md)
 
 ## Status (2026-10-05)
 
@@ -15,7 +16,8 @@ This is a research protocol and evidence index, not an implemented GPU experimen
 - Track 1 #91: exact merged source at `a3e9f12ba17d83ace5dc6915b838642561898d90`, one GH200 pilot completed, seed 0, 1290 steps, loss 3.2772, training 776.415 s, end-to-end 1642 s. Not official 8xH100 timing or multi-seed parity.
 - Track 1 #92: NOT run. Current root code is a later descendant, not byte-identical certified #360. Follow-up #373 added canonical masking, changed init RNG through pruning, and changed sparse gradient storage. Pin a certified source artifact before claiming exact reproduction.
 - Track 2: NOT run. Hardware feasibility, local runtime and optimizer transfer are unmeasured.
-- No cross-track rank correlation, optimizer-component profile or warm-cache startup measurement exists yet.
+- GH200 table-subsystem benchmark: full 129.95 GB CPU-bound table, about 6-10.5 ms/global-step amortized service cost in two runs. Synthetic gradients; no Transformer training or full #92 parity. See linked report.
+- No cross-track rank correlation, full-training optimizer critical-path profile or warm-cache trainer-startup measurement exists yet.
 
 ## Checkout and publishing
 
