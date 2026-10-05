@@ -1,0 +1,39 @@
+{
+  "as_of": "2026-10-05",
+  "hardware": "1x NVIDIA GH200, 96 GB-class GPU memory, ARM64 host",
+  "track3_record46": {
+    "status": "completed",
+    "seed": 0,
+    "n": 1,
+    "steps": 2690,
+    "scored_loss": 3.27813,
+    "raw_loss": 3.28231,
+    "training_seconds": 6246.827,
+    "total_elapsed_seconds": 6483,
+    "source_commit": "4ea6b937337a4889b8cfe3f38a93d120048d8f71",
+    "reference_mean_loss": 3.27832875,
+    "reference_n": 8
+  },
+  "track1_record91": {
+    "status": "completed",
+    "seed": 0,
+    "n": 1,
+    "steps": 1290,
+    "scored_loss": 3.2772,
+    "training_seconds": 776.415,
+    "total_elapsed_seconds": 1642,
+    "source_commit": "a3e9f12ba17d83ace5dc6915b838642561898d90"
+  },
+  "track1_record92": {
+    "status": "not_run"
+  },
+  "track2": {
+    "status": "not_run"
+  },
+  "limitations": [
+    "Single-seed pilots, not statistical parity.",
+    "GH200 speed is not official eight-H100 timing.",
+    "No optimizer critical-path profile or warm-cache startup measurement yet.",
+    "Track 1 startup attempts failed twice before training; no trained seed was discarded."
+  ]
+}

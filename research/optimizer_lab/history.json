@@ -1,0 +1,1181 @@
+{
+  "upstream_commit": "4ea6b937337a4889b8cfe3f38a93d120048d8f71",
+  "as_of": "2026-10-05",
+  "track3": [
+    {
+      "id": 1,
+      "steps": 3600,
+      "world_record": true,
+      "date": "2026/04/26",
+      "evidence": "3.2777 (n=1)\u24cd",
+      "notes": "Muon plus auxiliary Adam; initial single-run result.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/records/track_3_optimization/README.md"
+    },
+    {
+      "id": 2,
+      "steps": 5625,
+      "world_record": false,
+      "date": "2026/04/26",
+      "evidence": "3.2790 (n=1)\u24cd",
+      "notes": "Adam baseline, explicitly described as likely undertuned.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/records/track_3_optimization/README.md"
+    },
+    {
+      "id": 3,
+      "steps": 3500,
+      "world_record": true,
+      "date": "2026/04/26",
+      "evidence": "3.2767 (n=1)\u24cd",
+      "notes": "Muon learning-rate and decay tuning.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/records/track_3_optimization/README.md"
+    },
+    {
+      "id": 4,
+      "steps": 4875,
+      "world_record": false,
+      "date": "2026/04/30",
+      "evidence": "3.2741 (n=5)\u2713",
+      "notes": "AdamH: Adam preconditioning with a hyperball constraint.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/272"
+    },
+    {
+      "id": 5,
+      "steps": 3325,
+      "world_record": true,
+      "date": "2026/04/30",
+      "evidence": "3.2782 (n=10)\u2713",
+      "notes": "MuonH: hyperball constraint, initialization and schedules.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/267"
+    },
+    {
+      "id": 6,
+      "steps": 3375,
+      "world_record": false,
+      "date": "2026/05/01",
+      "evidence": "3.2788 (n=20)\u2713",
+      "notes": "Muon plus auxiliary Adam tuning, with more seeds.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/271"
+    },
+    {
+      "id": 7,
+      "steps": 3325,
+      "world_record": false,
+      "date": "2026/04/29",
+      "evidence": "3.2752 (n=1)\u2713",
+      "notes": "Muon squared: adaptive preconditioning before polar direction.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/266"
+    },
+    {
+      "id": 8,
+      "steps": 3250,
+      "world_record": false,
+      "date": "2026/04/30",
+      "evidence": "3.2778 (n=10)\u2713",
+      "notes": "NorMuonH: row/column adaptivity combined with norm constraint.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/273"
+    },
+    {
+      "id": 9,
+      "steps": 3250,
+      "world_record": true,
+      "date": "2026/04/29",
+      "evidence": "3.2771 (n=8)\u2713",
+      "notes": "NorMuon plus minimum update-to-weight norm ratio.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/274"
+    },
+    {
+      "id": 10,
+      "steps": 3250,
+      "world_record": false,
+      "date": "2026/05/03",
+      "evidence": "3.2789 (n=20)\u2713",
+      "notes": "NorMuon learning-rate/decay tuning.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/276"
+    },
+    {
+      "id": 11,
+      "steps": 3225,
+      "world_record": true,
+      "date": "2026/05/01",
+      "evidence": "3.2785 (n=16)\u2713",
+      "notes": "Contra-Muon added; pairwise improvement over #9 not significant.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/275"
+    },
+    {
+      "id": 12,
+      "steps": 3325,
+      "world_record": false,
+      "date": "2026/05/03",
+      "evidence": "3.2790 (n=20)\u2713",
+      "notes": "Plain Muon retuned using the NorMuon recipe.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/records/track_3_optimization/README.md"
+    },
+    {
+      "id": 13,
+      "steps": 3210,
+      "world_record": true,
+      "date": "2026/05/04",
+      "evidence": "3.2785 (n=10)\u2713",
+      "notes": "MuLoCo-style outer Nesterov around NorMuonH.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/277"
+    },
+    {
+      "id": 14,
+      "steps": 3150,
+      "world_record": true,
+      "date": "2026/05/04",
+      "evidence": "3.2776 (n=4)\u2713",
+      "notes": "SOAP covariance-basis preconditioning before Muon on MLPs.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/278"
+    },
+    {
+      "id": 15,
+      "steps": 3275,
+      "world_record": false,
+      "date": "2026/05/05",
+      "evidence": "3.2785 (n=15)\u2713",
+      "notes": "Newton-Muon: activation covariance right-preconditioning.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/281"
+    },
+    {
+      "id": 16,
+      "steps": 3125,
+      "world_record": true,
+      "date": "2026/05/05",
+      "evidence": "3.2784 (n=8)\u2713",
+      "notes": "Attention SOAP with a trust gate; weak pairwise evidence.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/283"
+    },
+    {
+      "id": 17,
+      "steps": 3175,
+      "world_record": false,
+      "date": "2026/05/06",
+      "evidence": "3.2789 (n=20)\u2713",
+      "notes": "Aurora applied to the Contra-Muon recipe.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/284"
+    },
+    {
+      "id": 18,
+      "steps": 3225,
+      "world_record": false,
+      "date": "2026/05/07",
+      "evidence": "3.2776 (n=9)\u2713",
+      "notes": "PMuon: bilateral streaming covariance power preconditioning.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/285"
+    },
+    {
+      "id": 19,
+      "steps": 3125,
+      "world_record": false,
+      "date": "2026/05/08",
+      "evidence": "3.2780 (n=6)\u2713",
+      "notes": "KL-SOAP with hyperball constraint.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/290"
+    },
+    {
+      "id": 20,
+      "steps": 3030,
+      "world_record": true,
+      "date": "2026/05/09",
+      "evidence": "3.2790 (n=30)\u2713",
+      "notes": "PowerCool schedule and Contra/Soft-Muon blending.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/291"
+    },
+    {
+      "id": 21,
+      "steps": 4100,
+      "world_record": false,
+      "date": "2026/05/13",
+      "evidence": "3.2776 (n=4)\u2713",
+      "notes": "Shampoo baseline with inverse-fourth-root preconditioning.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/records/track_3_optimization/README.md"
+    },
+    {
+      "id": 22,
+      "steps": 8225,
+      "world_record": false,
+      "date": "2026/05/17",
+      "evidence": "3.2774 (n=4)\u2713",
+      "notes": "Spectral descent without momentum; expensive in steps.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/records/track_3_optimization/README.md"
+    },
+    {
+      "id": 23,
+      "steps": 3075,
+      "world_record": false,
+      "date": "2026/05/10",
+      "evidence": "3.2790 (n=30)\u2713",
+      "notes": "Muown: integrated row-norm control and schedule changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/288"
+    },
+    {
+      "id": 24,
+      "steps": 3175,
+      "world_record": false,
+      "date": "2026/05/09",
+      "evidence": "3.2782 (n=10)\u2713",
+      "notes": "Different cooldown lengths for matrix and auxiliary updates.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/292"
+    },
+    {
+      "id": 25,
+      "steps": 3040,
+      "world_record": false,
+      "date": "2026/05/11",
+      "evidence": "3.2781 (n=5)\u2713",
+      "notes": "KL-SOAP-H plus PowerCool and nonzero LR floors.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/293"
+    },
+    {
+      "id": 26,
+      "steps": 3090,
+      "world_record": false,
+      "date": "2026/05/14",
+      "evidence": "3.2785 (n=10)\u2713",
+      "notes": "SinkSOAP: Gram-Sinkhorn preconditioning plus NorMuon postconditioner.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/298"
+    },
+    {
+      "id": 27,
+      "steps": 3125,
+      "world_record": false,
+      "date": "2026/05/18",
+      "evidence": "3.2782 (n=6)\u2713",
+      "notes": "SOAP-H: SOAP plus hyperball and tuned schedule.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/302"
+    },
+    {
+      "id": 28,
+      "steps": 3175,
+      "world_record": false,
+      "date": "2026/05/19",
+      "evidence": "3.2790 (n=25)\u2713",
+      "notes": "DynMuon: scheduled spectral transformation.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/304"
+    },
+    {
+      "id": 29,
+      "steps": 2990,
+      "world_record": true,
+      "date": "2026/05/11",
+      "evidence": "3.2787 (n=11)\u2713",
+      "notes": "Radial brake: suppress outward updates before norm floor.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/294"
+    },
+    {
+      "id": 30,
+      "steps": 2930,
+      "world_record": true,
+      "date": "2026/05/14",
+      "evidence": "3.2784 (n=16)\u2713",
+      "notes": "Aurora on MLP projections; prune/tune geometry and momentum schedule.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/300"
+    },
+    {
+      "id": 31,
+      "steps": 2995,
+      "world_record": false,
+      "date": "2026/05/15",
+      "evidence": "3.2789 (n=20)\u2713",
+      "notes": "Muown combined with NorMuon and Contra-Muon.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/301"
+    },
+    {
+      "id": 32,
+      "steps": 3000,
+      "world_record": false,
+      "date": "2026/05/18",
+      "evidence": "3.2778 (n=9)\u2713",
+      "notes": "SODA-style correction toward initialization, faded late.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/303"
+    },
+    {
+      "id": 33,
+      "steps": 3375,
+      "world_record": false,
+      "date": "2026/05/28",
+      "evidence": "3.2779 (n=5)\u2713",
+      "notes": "PSGD with Kronecker whitening and hyperball constraint.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/316"
+    },
+    {
+      "id": 34,
+      "steps": 2925,
+      "world_record": true,
+      "date": "2026/05/20",
+      "evidence": "3.2781 (n=8)\u2713",
+      "notes": "Late reduced-rank extrapolation; weak pairwise evidence.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/305"
+    },
+    {
+      "id": 35,
+      "steps": 3375,
+      "world_record": false,
+      "date": "2026/06/10",
+      "evidence": "3.2767 (n=2)\u2713",
+      "notes": "One-sided Shampoo, pseudoinverse root and Adam grafting.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/records/track_3_optimization/README.md"
+    },
+    {
+      "id": 36,
+      "steps": 3250,
+      "world_record": false,
+      "date": "2026/06/11",
+      "evidence": "3.2787 (n=10)\u2713",
+      "notes": "Strong tuned simple Muon plus auxiliary AdamW baseline.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/323"
+    },
+    {
+      "id": 37,
+      "steps": 3250,
+      "world_record": false,
+      "date": "2026/06/11",
+      "evidence": "3.2786 (n=10)\u2713",
+      "notes": "MuonH benefits from retuning auxiliary Adam parameters.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/324"
+    },
+    {
+      "id": 38,
+      "steps": 2900,
+      "world_record": true,
+      "date": "2026/05/20",
+      "evidence": "3.2786 (n=9)\u2713",
+      "notes": "Late weight readout and tempered-polar/schedule adjustments.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/307"
+    },
+    {
+      "id": 39,
+      "steps": 3125,
+      "world_record": false,
+      "date": "2026/05/22",
+      "evidence": "3.2786 (n=20)\u2713",
+      "notes": "EMA-Nesterov lookahead around plain Muon.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/308"
+    },
+    {
+      "id": 40,
+      "steps": 2890,
+      "world_record": true,
+      "date": "2026/05/22",
+      "evidence": "3.2788 (n=16)\u2713",
+      "notes": "EMA-Nesterov lookahead added to the stronger #30 recipe.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/309"
+    },
+    {
+      "id": 41,
+      "steps": 2875,
+      "world_record": true,
+      "date": "2026/05/23",
+      "evidence": "3.2790 (n=20)\u2713",
+      "notes": "Circuit-Muon coupling of attention value/output weights.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/311"
+    },
+    {
+      "id": 42,
+      "steps": 2860,
+      "world_record": true,
+      "date": "2026/05/25",
+      "evidence": "3.2789 (n=16)\u2713",
+      "notes": "Late reference extrapolation and initialization changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/312"
+    },
+    {
+      "id": 43,
+      "steps": 2850,
+      "world_record": true,
+      "date": "2026/05/29",
+      "evidence": "3.2786 (n=13)\u2713",
+      "notes": "Several fixed late-trajectory transformations and anchor blending.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/318"
+    },
+    {
+      "id": 44,
+      "steps": 2750,
+      "world_record": true,
+      "date": "2026/06/10",
+      "evidence": "3.2789 (n=20)\u2713",
+      "notes": "SOAP on all hidden matrices every step; auxiliary tuning; remove geometry modules.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/321"
+    },
+    {
+      "id": 45,
+      "steps": 2720,
+      "world_record": true,
+      "date": "2026/06/12",
+      "evidence": "3.2786 (n=10)\u2713",
+      "notes": "Late EMA-weight blending at evaluation.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/325"
+    },
+    {
+      "id": 46,
+      "steps": 2690,
+      "world_record": true,
+      "date": "2026/06/19",
+      "evidence": "3.2783 (n=8)\u2713",
+      "notes": "Per-row update floor plus post-rescale cautious decay.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/328"
+    }
+  ],
+  "track1": [
+    {
+      "id": 1,
+      "time": "45 minutes",
+      "date": "05/28/24",
+      "family": "AdamW",
+      "optimizer_note": "AdamW baseline.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/README.md#world-record-history"
+    },
+    {
+      "id": 2,
+      "time": "31.4 minutes",
+      "date": "06/06/24",
+      "family": "AdamW",
+      "optimizer_note": "Learning-rate tuning alongside rotary architecture change.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/README.md#world-record-history"
+    },
+    {
+      "id": 3,
+      "time": "24.9 minutes",
+      "date": "10/04/24",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "Muon enters for hidden matrices; auxiliary Adam-family updates remain.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/README.md#world-record-history"
+    },
+    {
+      "id": 4,
+      "time": "22.3 minutes",
+      "date": "10/11/24",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "Muon refinements.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/README.md#world-record-history"
+    },
+    {
+      "id": 5,
+      "time": "15.2 minutes",
+      "date": "10/14/24",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/README.md#world-record-history"
+    },
+    {
+      "id": 6,
+      "time": "13.1 minutes",
+      "date": "10/18/24",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "Distribute optimizer overhead across GPUs.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/README.md#world-record-history"
+    },
+    {
+      "id": 7,
+      "time": "12.0 minutes",
+      "date": "10/18/24",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/README.md#world-record-history"
+    },
+    {
+      "id": 8,
+      "time": "10.8 minutes",
+      "date": "11/03/24",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/README.md#world-record-history"
+    },
+    {
+      "id": 9,
+      "time": "8.2 minutes",
+      "date": "11/06/24",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "Momentum warmup alongside architecture/logit changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/README.md#world-record-history"
+    },
+    {
+      "id": 10,
+      "time": "7.8 minutes",
+      "date": "11/08/24",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/README.md#world-record-history"
+    },
+    {
+      "id": 11,
+      "time": "7.2 minutes",
+      "date": "11/10/24",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/README.md#world-record-history"
+    },
+    {
+      "id": 12,
+      "time": "5.03 minutes",
+      "date": "11/19/24",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/README.md#world-record-history"
+    },
+    {
+      "id": 13,
+      "time": "4.66 minutes",
+      "date": "11/24/24",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/README.md#world-record-history"
+    },
+    {
+      "id": 14,
+      "time": "4.41 minutes",
+      "date": "12/04/24",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/README.md#world-record-history"
+    },
+    {
+      "id": 15,
+      "time": "3.95 minutes",
+      "date": "12/08/24",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/README.md#world-record-history"
+    },
+    {
+      "id": 16,
+      "time": "3.80 minutes",
+      "date": "12/10/24",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/README.md#world-record-history"
+    },
+    {
+      "id": 17,
+      "time": "3.57 minutes",
+      "date": "12/17/24",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/README.md#world-record-history"
+    },
+    {
+      "id": 18,
+      "time": "3.4 minutes",
+      "date": "01/04/25",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/README.md#world-record-history"
+    },
+    {
+      "id": 19,
+      "time": "3.142 minutes",
+      "date": "01/13/25",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "Nonzero terminal learning-rate floor alongside FP8-head changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/README.md#world-record-history"
+    },
+    {
+      "id": 20,
+      "time": "2.992 minutes",
+      "date": "01/16/25",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "Batched Muon and Adam epsilon, alongside attention/layout changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/README.md#world-record-history"
+    },
+    {
+      "id": 21,
+      "time": "2.933 minutes",
+      "date": "01/26/25",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/README.md#world-record-history"
+    },
+    {
+      "id": 21,
+      "time": "2.997 minutes",
+      "date": "02/01/25",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/README.md#world-record-history"
+    },
+    {
+      "id": 21,
+      "time": "3.014 minutes",
+      "date": "05/24/25",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/README.md#world-record-history"
+    },
+    {
+      "id": 22,
+      "time": "2.990 minutes",
+      "date": "05/24/25",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "Faster gradient reduction.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/README.md#world-record-history"
+    },
+    {
+      "id": 23,
+      "time": "2.979 minutes",
+      "date": "05/25/25",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "Overlap communication and computation.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/README.md#world-record-history"
+    },
+    {
+      "id": 24,
+      "time": "2.966 minutes",
+      "date": "05/30/25",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "Reduce-scatter replaces all-reduce.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/README.md#world-record-history"
+    },
+    {
+      "id": 25,
+      "time": "2.896 minutes",
+      "date": "07/13/25",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/README.md#world-record-history"
+    },
+    {
+      "id": 26,
+      "time": "2.863 minutes",
+      "date": "07/13/25",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/README.md#world-record-history"
+    },
+    {
+      "id": 27,
+      "time": "2.817 minutes",
+      "date": "07/18/25",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "Symmetric-matmul Triton kernel and matrix orientation.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/109"
+    },
+    {
+      "id": 28,
+      "time": "2.812 minutes",
+      "date": "08/23/25",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/117"
+    },
+    {
+      "id": 29,
+      "time": "2.731 minutes",
+      "date": "09/03/25",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/118"
+    },
+    {
+      "id": 30,
+      "time": "2.717 minutes",
+      "date": "09/05/25",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/120"
+    },
+    {
+      "id": 31,
+      "time": "2.656 minutes",
+      "date": "09/10/25",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/122"
+    },
+    {
+      "id": 32,
+      "time": "2.625 minutes",
+      "date": "09/11/25",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/125"
+    },
+    {
+      "id": 33,
+      "time": "2.565 minutes",
+      "date": "09/15/25",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/127"
+    },
+    {
+      "id": 34,
+      "time": "2.547 minutes",
+      "date": "09/18/25",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/130"
+    },
+    {
+      "id": 35,
+      "time": "2.527 minutes",
+      "date": "09/21/25",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/131"
+    },
+    {
+      "id": 36,
+      "time": "2.495 minutes",
+      "date": "09/23/25",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "Shape-aware Muon and combined gradient reductions.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/132"
+    },
+    {
+      "id": 37,
+      "time": "2.483 minutes",
+      "date": "09/27/25",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/133"
+    },
+    {
+      "id": 38,
+      "time": "2.476 minutes",
+      "date": "09/29/25",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "Polar Express orthogonalization polynomial schedule.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/134"
+    },
+    {
+      "id": 39,
+      "time": "2.447 minutes",
+      "date": "09/30/25",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "Auxiliary Adam updated every other step; batch also changed.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/136"
+    },
+    {
+      "id": 40,
+      "time": "2.358 minutes",
+      "date": "10/04/25",
+      "family": "Muon + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/140"
+    },
+    {
+      "id": 41,
+      "time": "2.345 minutes",
+      "date": "10/24/25",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "NorMuon adaptive rescaling enters the record.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/144"
+    },
+    {
+      "id": 42,
+      "time": "2.313 minutes",
+      "date": "10/27/25",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "NorMuon learning rate and step-logic correction.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/146"
+    },
+    {
+      "id": 43,
+      "time": "2.284 minutes",
+      "date": "11/10/25",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "Cautious weight decay with a schedule.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/154"
+    },
+    {
+      "id": 44,
+      "time": "2.269 minutes",
+      "date": "11/16/25",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "Adam backward hooks and synchronization overlap.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/149"
+    },
+    {
+      "id": 45,
+      "time": "2.248 minutes",
+      "date": "[log](records/track_1_short/2025-11-18_RefineSkip/00f4e1e6-0044-4a08-b88a-3b7ec0624081.txt),[PR](https://github.com/KellerJordan/modded-nanogpt/pull/159)",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/159"
+    },
+    {
+      "id": 46,
+      "time": "2.203 minutes",
+      "date": "11/29/25",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "Batch-size schedule changes the optimizer workload.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/163"
+    },
+    {
+      "id": 47,
+      "time": "2.193 minutes",
+      "date": "12/10/25",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/166"
+    },
+    {
+      "id": 48,
+      "time": "2.170 minutes",
+      "date": "12/11/25",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "NorMuon axis, matrix layout, implementation and LR fixes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/168"
+    },
+    {
+      "id": 49,
+      "time": "2.146 minutes",
+      "date": "12/14/25",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/169"
+    },
+    {
+      "id": 50,
+      "time": "2.128 minutes",
+      "date": "12/18/25",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "Cautious decay extended to Adam parameters.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/172"
+    },
+    {
+      "id": 51,
+      "time": "2.075 minutes",
+      "date": "12/19/25",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/175"
+    },
+    {
+      "id": 52,
+      "time": "2.037 minutes",
+      "date": "12/21/25",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "Auxiliary beta/LR tuning and scalar freezing at transitions.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/177"
+    },
+    {
+      "id": 53,
+      "time": "1.988 minutes",
+      "date": "12/22/25",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "Decay/LR changes accompany MTP and embedding untying.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/178"
+    },
+    {
+      "id": 54,
+      "time": "1.940 minutes",
+      "date": "12/26/25",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/181"
+    },
+    {
+      "id": 55,
+      "time": "1.918 minutes",
+      "date": "12/29/25",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/186"
+    },
+    {
+      "id": 56,
+      "time": "1.894 minutes",
+      "date": "12/31/25",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "Compile Adam; higher-precision state; move gates to Adam groups.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/187"
+    },
+    {
+      "id": 57,
+      "time": "1.878 minutes",
+      "date": "01/04/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "Mixed-precision Muon and interleaved Adam/Muon execution.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/190"
+    },
+    {
+      "id": 58,
+      "time": "1.820 minutes",
+      "date": "01/07/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/191"
+    },
+    {
+      "id": 59,
+      "time": "1.781 minutes",
+      "date": "01/10/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/197"
+    },
+    {
+      "id": 60,
+      "time": "1.765 minutes",
+      "date": "01/16/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/199"
+    },
+    {
+      "id": 61,
+      "time": "1.748 minutes",
+      "date": "01/18/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "Unified optimizer implementation and transposed head.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/200"
+    },
+    {
+      "id": 62,
+      "time": "1.655 minutes",
+      "date": "01/19/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/201"
+    },
+    {
+      "id": 63,
+      "time": "1.650 minutes",
+      "date": "01/26/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/209"
+    },
+    {
+      "id": 64,
+      "time": "1.630 minutes",
+      "date": "01/30/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/214"
+    },
+    {
+      "id": 65,
+      "time": "1.613 minutes",
+      "date": "01/30/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "Group value embeddings into one parameter (layout/system effect).",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/215"
+    },
+    {
+      "id": 66,
+      "time": "1.595 minutes",
+      "date": "01/31/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/blob/4ea6b937337a4889b8cfe3f38a93d120048d8f71/README.md#world-record-history"
+    },
+    {
+      "id": 67,
+      "time": "1.540 minutes",
+      "date": "01/31/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/207"
+    },
+    {
+      "id": 68,
+      "time": "1.535 minutes",
+      "date": "01/31/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/216"
+    },
+    {
+      "id": 69,
+      "time": "1.528 minutes",
+      "date": "02/02/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/217"
+    },
+    {
+      "id": 70,
+      "time": "1.521 minutes",
+      "date": "02/03/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/218"
+    },
+    {
+      "id": 71,
+      "time": "1.516 minutes",
+      "date": "02/06/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "Sparse bigram gradient communication.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/221"
+    },
+    {
+      "id": 72,
+      "time": "1.496 minutes",
+      "date": "02/10/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "Higher minimum LR plus sequence-length schedule.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/224"
+    },
+    {
+      "id": 73,
+      "time": "1.485 minutes",
+      "date": "02/12/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/230"
+    },
+    {
+      "id": 74,
+      "time": "1.468 minutes",
+      "date": "02/16/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/233"
+    },
+    {
+      "id": 75,
+      "time": "1.453 minutes",
+      "date": "02/23/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/235"
+    },
+    {
+      "id": 76,
+      "time": "1.446 minutes",
+      "date": "02/28/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/240"
+    },
+    {
+      "id": 77,
+      "time": "1.435 minutes",
+      "date": "03/06/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/241"
+    },
+    {
+      "id": 78,
+      "time": "1.426 minutes",
+      "date": "03/22/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/246"
+    },
+    {
+      "id": 79,
+      "time": "1.411 minutes",
+      "date": "04/04/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/251"
+    },
+    {
+      "id": 80,
+      "time": "1.406 minutes",
+      "date": "04/08/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "Orthogonalize attention Q/K by paired heads.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/253"
+    },
+    {
+      "id": 81,
+      "time": "1.363 minutes",
+      "date": "04/22/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/259"
+    },
+    {
+      "id": 82,
+      "time": "1.353 minutes",
+      "date": "04/29/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/264"
+    },
+    {
+      "id": 83,
+      "time": "1.328 minutes",
+      "date": "05/20/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/299"
+    },
+    {
+      "id": 84,
+      "time": "1.320 minutes",
+      "date": "05/21/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/306"
+    },
+    {
+      "id": 85,
+      "time": "1.271 minutes",
+      "date": "05/27/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/315"
+    },
+    {
+      "id": 86,
+      "time": "1.266 minutes",
+      "date": "05/27/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/317"
+    },
+    {
+      "id": 87,
+      "time": "1.256 minutes",
+      "date": "06/11/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/322"
+    },
+    {
+      "id": 88,
+      "time": "1.243 minutes",
+      "date": "07/13/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/337"
+    },
+    {
+      "id": 89,
+      "time": "1.23 minutes",
+      "date": "07/17/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/342"
+    },
+    {
+      "id": 90,
+      "time": "1.13 minutes",
+      "date": "08/03/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "No optimizer milestone singled out here; see original entry for architectural, systems or recipe changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/344"
+    },
+    {
+      "id": 91,
+      "time": "1.126 minutes",
+      "date": "08/06/26",
+      "family": "NorMuon/Muon family + auxiliary Adam-family",
+      "optimizer_note": "Canonical-token evaluation masking; not a new optimizer.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/350"
+    },
+    {
+      "id": 92,
+      "time": "0.665 minutes",
+      "date": "08/30/26",
+      "family": "ANVIL + auxiliary/sparse Adam",
+      "optimizer_note": "ANVIL and sparse Adam, bundled with substantial model/loss/systems changes.",
+      "source": "https://github.com/KellerJordan/modded-nanogpt/pull/360"
+    }
+  ],
+  "caveats": [
+    "Track 3 ! flags follow upstream, including ties/historical non-significant records.",
+    "Dates are table submission/result dates, not necessarily merge dates; ordering is acceptance ID.",
+    "Track 1 family labels are coarse lineage inferred from documented transitions, not an audit of every historical kernel.",
+    "Track 1 times reflect entire recipes and hardware/timing conventions, not isolated optimizer causal effects.",
+    "Record 21 appears multiple times because upstream records retimings."
+  ]
+}
