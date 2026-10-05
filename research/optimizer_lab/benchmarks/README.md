@@ -3,6 +3,8 @@
 These are **table-subsystem measurements, not a #92 training reproduction**.
 They do not establish final loss, optimizer ranking preservation, or full-run timing.
 
+For actual forward/backward/update iterations, see the newer [complete training-step pilot and HBM control](TRAINING_SMOKE_2026_10_05.md).
+
 See [measured results](RESULTS_2026_10_05.md) and [curated data](results_2026_10_05.json).
 
 ## Reproduce

@@ -1,0 +1,2221 @@
+{
+  "as_of": "2026-10-05",
+  "scope": "Adapted descendant complete training-step pilot, not full #92 reproduction or convergence validation",
+  "hardware": {
+    "gpu": "NVIDIA GH200 480GB",
+    "gpu_memory_mib": 97871,
+    "driver": "570.195.03",
+    "torch": "2.10.0+cu128",
+    "triton": "3.6.0",
+    "cpu": "Grace ARM64"
+  },
+  "summary": {
+    "mean_ms_per_global_step": {
+      "host": 133.09326150010747,
+      "hbm": 126.20884999978443
+    },
+    "host_increment_ms": 6.88441150032304,
+    "host_increment_percent": 5.454777141487943,
+    "published_8xh100_early_step_ms": 16.980941176470587,
+    "pilot_to_published_early_step_ratio": 7.8378023995823245,
+    "measured_steps_per_mode": 24,
+    "total_trained_steps_per_mode": 40
+  },
+  "source_sha256": {
+    "gh200_training_smoke.py": "dfa34a6156141089cf467b60986abc74d6dbb07ed8d61dc356bde0f760df034c",
+    "gh200_verify_training_graph.py": "247610e790fd3ad7a75cb3bde8f74114c2ad40c1a4a6c5cbe0f13624d63b32cd",
+    "gh200_table_path.py": "b171e07689df6581f958732717504f56d2fe3cd82a422f83da33e73435cb708e",
+    "gh200_trace_plan.py": "6b74a9b955551b3c328d72d8f0d54c359b7615aee8ee7adfb65d0ac848714e2e"
+  },
+  "runs": [
+    {
+      "scope": "Complete-step GH200 feasibility pilot, NOT a certified #92 reproduction.\nCurrent refactored descendant model; cached CUDA12 FA3 with zero-padded heads;\neight serialized logical ranks, real BOS-packed FineWeb, FP8 training, upstream\nANVIL/Adam and full-size CPU ngram store. HBM control stores only the exact rows\nvisited by this finite trace, without changing hashes/collisions or dropping rows.\nNo eight-device reduction-rounding equivalence or convergence claim.\n",
+      "mode": "host",
+      "upstream_commit": "4ea6b937337a4889b8cfe3f38a93d120048d8f71",
+      "source_sha256": "dfa34a6156141089cf467b60986abc74d6dbb07ed8d61dc356bde0f760df034c",
+      "attention": {
+        "kernel_revision": "7cb368cf8278b583132eb72cbf312d54586df2e2",
+        "binary_sha256": "474882b6dc65354889a9ac6489b3ffb9e449b74db1610f032e6b94d9d5788874",
+        "modification": "zero-pad unequal qk/v heads to same width; preserve explicit softmax scale; slice output to original v width"
+      },
+      "global_tokens": 131072,
+      "logical_ranks": 8,
+      "period": 2,
+      "stage": 0,
+      "cycles": 10,
+      "warmup_cycles": 4,
+      "full_logical_table_bytes": 129950023680,
+      "physical_store_bytes": 129950023680,
+      "trace_union_rows": 2813567,
+      "graphs": true,
+      "compile": true,
+      "startup_through_capture_seconds": 80.21458218599582,
+      "measurements": [
+        {
+          "cycle": 0,
+          "timed": false,
+          "wall_ms": 3932.366089997231,
+          "ms_per_global_step": 1966.1830449986155,
+          "phase_cuda_ms": {
+            "plan_pull": 13.900832176208496,
+            "refresh": 3.6819519996643066,
+            "stage": 1.873471986502409,
+            "forward": 213.44396877288818,
+            "backward": 11.864128053188324,
+            "ngram_merge": 1.430943988263607,
+            "dense_optimizer": 3670.559883117676,
+            "ngram_update_push": 15.474944114685059
+          },
+          "step_ms_without_cycle_pull": [
+            3669.869647004816,
+            248.6965499992948
+          ],
+          "mean_training_objective": 17.090967297554016,
+          "microbatch_objectives": [
+            17.018320083618164,
+            17.117874145507812,
+            17.140911102294922,
+            17.156198501586914,
+            17.17462921142578,
+            17.094696044921875,
+            17.198036193847656,
+            17.113561630249023,
+            16.941104888916016,
+            17.04668617248535,
+            17.250988006591797,
+            17.158523559570312,
+            17.021690368652344,
+            16.942045211791992,
+            17.085071563720703,
+            16.995140075683594
+          ],
+          "table_nonzero_rows": 372558,
+          "table_rms": 0.559997022151947,
+          "table_gradient_rms": 0.0015044548781588674,
+          "finite": true,
+          "table_cpu_only": true,
+          "gpu_peak_allocated_bytes": 9010493440
+        },
+        {
+          "cycle": 1,
+          "timed": false,
+          "wall_ms": 274.0298159988015,
+          "ms_per_global_step": 137.01490799940075,
+          "phase_cuda_ms": {
+            "plan_pull": 11.58233642578125,
+            "refresh": 2.2039680182933807,
+            "stage": 1.2947200015187263,
+            "forward": 216.1750726699829,
+            "backward": 11.883135974407196,
+            "ngram_merge": 1.367456004023552,
+            "dense_optimizer": 20.204352378845215,
+            "ngram_update_push": 9.1593599319458
+          },
+          "step_ms_without_cycle_pull": [
+            136.5653190005105,
+            133.55523900099797
+          ],
+          "mean_training_objective": 14.698595225811005,
+          "microbatch_objectives": [
+            14.748682022094727,
+            15.044964790344238,
+            14.937553405761719,
+            15.015247344970703,
+            14.669456481933594,
+            14.556753158569336,
+            14.903968811035156,
+            14.83885383605957,
+            14.686771392822266,
+            14.510676383972168,
+            14.51753044128418,
+            14.481391906738281,
+            14.55276870727539,
+            14.583831787109375,
+            14.57621955871582,
+            14.55285358428955
+          ],
+          "table_nonzero_rows": 369637,
+          "table_rms": 0.7893967032432556,
+          "table_gradient_rms": 0.002713399939239025,
+          "finite": true,
+          "table_cpu_only": true,
+          "gpu_peak_allocated_bytes": 9311686656
+        },
+        {
+          "cycle": 2,
+          "timed": false,
+          "wall_ms": 265.99475400144,
+          "ms_per_global_step": 132.99737700072,
+          "phase_cuda_ms": {
+            "plan_pull": 11.728704452514648,
+            "refresh": 2.315840035676956,
+            "stage": 1.290816005319357,
+            "forward": 216.93347358703613,
+            "backward": 11.898912072181702,
+            "ngram_merge": 1.352512001991272,
+            "dense_optimizer": 11.108160018920898,
+            "ngram_update_push": 9.180671691894531
+          },
+          "step_ms_without_cycle_pull": [
+            127.35520300338976,
+            134.527986003377
+          ],
+          "mean_training_objective": 14.211092114448547,
+          "microbatch_objectives": [
+            14.180975914001465,
+            14.343567848205566,
+            14.702726364135742,
+            14.195455551147461,
+            14.361883163452148,
+            14.146284103393555,
+            14.584693908691406,
+            14.439643859863281,
+            13.946836471557617,
+            13.939567565917969,
+            14.185710906982422,
+            13.777946472167969,
+            14.1605863571167,
+            14.15386962890625,
+            14.090536117553711,
+            14.167189598083496
+          ],
+          "table_nonzero_rows": 372782,
+          "table_rms": 0.9701250195503235,
+          "table_gradient_rms": 0.0030650184489786625,
+          "finite": true,
+          "table_cpu_only": true,
+          "gpu_peak_allocated_bytes": 9341776896
+        },
+        {
+          "cycle": 3,
+          "timed": false,
+          "wall_ms": 265.2467459993204,
+          "ms_per_global_step": 132.6233729996602,
+          "phase_cuda_ms": {
+            "plan_pull": 8.589344024658203,
+            "refresh": 2.887935906648636,
+            "stage": 1.3540479950606823,
+            "forward": 218.6036148071289,
+            "backward": 11.91299194097519,
+            "ngram_merge": 1.361471988260746,
+            "dense_optimizer": 11.163008213043213,
+            "ngram_update_push": 9.202272415161133
+          },
+          "step_ms_without_cycle_pull": [
+            128.71461099712178,
+            135.57599700288847
+          ],
+          "mean_training_objective": 13.548285841941833,
+          "microbatch_objectives": [
+            13.565714836120605,
+            13.742559432983398,
+            13.85913372039795,
+            13.750473022460938,
+            13.746273040771484,
+            14.035259246826172,
+            13.86449146270752,
+            13.985481262207031,
+            13.332740783691406,
+            13.317880630493164,
+            13.243095397949219,
+            13.338199615478516,
+            13.460216522216797,
+            13.099166870117188,
+            13.12476921081543,
+            13.30711841583252
+          ],
+          "table_nonzero_rows": 372817,
+          "table_rms": 1.113842487335205,
+          "table_gradient_rms": 0.002957409480586648,
+          "finite": true,
+          "table_cpu_only": true,
+          "gpu_peak_allocated_bytes": 9341776896
+        },
+        {
+          "cycle": 4,
+          "timed": true,
+          "wall_ms": 265.7247669994831,
+          "ms_per_global_step": 132.86238349974155,
+          "phase_cuda_ms": {
+            "plan_pull": 8.641504287719727,
+            "refresh": 3.1027199923992157,
+            "stage": 1.400639995932579,
+            "forward": 218.8145923614502,
+            "backward": 11.92463994026184,
+            "ngram_merge": 1.3556799963116646,
+            "dense_optimizer": 11.147007942199707,
+            "ngram_update_push": 9.153375625610352
+          },
+          "step_ms_without_cycle_pull": [
+            128.79944300220814,
+            135.8931529975962
+          ],
+          "mean_training_objective": 12.910345911979675,
+          "microbatch_objectives": [
+            13.040629386901855,
+            13.000875473022461,
+            13.301919937133789,
+            12.91165542602539,
+            12.868376731872559,
+            13.032466888427734,
+            13.254249572753906,
+            13.117206573486328,
+            12.960732460021973,
+            12.64765739440918,
+            12.79919719696045,
+            12.575883865356445,
+            12.606544494628906,
+            12.801383972167969,
+            12.930784225463867,
+            12.715970993041992
+          ],
+          "table_nonzero_rows": 365835,
+          "table_rms": 1.2279847860336304,
+          "table_gradient_rms": 0.002265166724100709,
+          "finite": true,
+          "table_cpu_only": true,
+          "gpu_peak_allocated_bytes": 9341776896
+        },
+        {
+          "cycle": 5,
+          "timed": true,
+          "wall_ms": 269.440135001787,
+          "ms_per_global_step": 134.7200675008935,
+          "phase_cuda_ms": {
+            "plan_pull": 11.995488166809082,
+            "refresh": 3.1982719004154205,
+            "stage": 1.459231998771429,
+            "forward": 218.88172817230225,
+            "backward": 11.932607889175415,
+            "ngram_merge": 1.3510719984769821,
+            "dense_optimizer": 11.148064136505127,
+            "ngram_update_push": 9.256863594055176
+          },
+          "step_ms_without_cycle_pull": [
+            128.41908699920168,
+            136.59232699865242
+          ],
+          "mean_training_objective": 12.750876367092133,
+          "microbatch_objectives": [
+            12.55506706237793,
+            13.040775299072266,
+            12.695158958435059,
+            12.718833923339844,
+            12.967386245727539,
+            12.658120155334473,
+            13.084056854248047,
+            12.829431533813477,
+            12.751075744628906,
+            12.784496307373047,
+            12.804342269897461,
+            12.464964866638184,
+            12.623659133911133,
+            12.793683052062988,
+            12.509800910949707,
+            12.733169555664062
+          ],
+          "table_nonzero_rows": 374463,
+          "table_rms": 1.3281358480453491,
+          "table_gradient_rms": 0.0017666448839008808,
+          "finite": true,
+          "table_cpu_only": true,
+          "gpu_peak_allocated_bytes": 9358457856
+        },
+        {
+          "cycle": 6,
+          "timed": true,
+          "wall_ms": 267.0914369955426,
+          "ms_per_global_step": 133.5457184977713,
+          "phase_cuda_ms": {
+            "plan_pull": 8.641568183898926,
+            "refresh": 3.3282240629196167,
+            "stage": 1.4108799695968628,
+            "forward": 219.8436794281006,
+            "backward": 11.934848070144653,
+            "ngram_merge": 1.351295992732048,
+            "dense_optimizer": 11.134176254272461,
+            "ngram_update_push": 9.214688301086426
+          },
+          "step_ms_without_cycle_pull": [
+            129.52117899840232,
+            136.43671000318136
+          ],
+          "mean_training_objective": 12.408521294593811,
+          "microbatch_objectives": [
+            12.407246589660645,
+            12.640320777893066,
+            12.38996696472168,
+            12.498445510864258,
+            12.40934944152832,
+            12.390779495239258,
+            12.439752578735352,
+            12.4170503616333,
+            12.535307884216309,
+            12.493189811706543,
+            12.388992309570312,
+            12.17554759979248,
+            12.411312103271484,
+            12.381385803222656,
+            12.322118759155273,
+            12.235574722290039
+          ],
+          "table_nonzero_rows": 369320,
+          "table_rms": 1.4213789701461792,
+          "table_gradient_rms": 0.0018111481331288815,
+          "finite": true,
+          "table_cpu_only": true,
+          "gpu_peak_allocated_bytes": 9358457856
+        },
+        {
+          "cycle": 7,
+          "timed": true,
+          "wall_ms": 266.27715700306,
+          "ms_per_global_step": 133.13857850153,
+          "phase_cuda_ms": {
+            "plan_pull": 8.721887588500977,
+            "refresh": 3.92192006111145,
+            "stage": 1.4751359708607197,
+            "forward": 218.25430393218994,
+            "backward": 11.920511960983276,
+            "ngram_merge": 1.3451840057969093,
+            "dense_optimizer": 11.134399890899658,
+            "ngram_update_push": 9.29702377319336
+          },
+          "step_ms_without_cycle_pull": [
+            128.76459499966586,
+            136.3982139955624
+          ],
+          "mean_training_objective": 12.24973464012146,
+          "microbatch_objectives": [
+            12.68989086151123,
+            12.354957580566406,
+            12.026519775390625,
+            12.09488296508789,
+            12.232137680053711,
+            12.38774299621582,
+            12.264911651611328,
+            12.397684097290039,
+            12.065207481384277,
+            12.08908462524414,
+            12.078350067138672,
+            12.33437728881836,
+            12.002447128295898,
+            12.356218338012695,
+            12.35359001159668,
+            12.267751693725586
+          ],
+          "table_nonzero_rows": 369949,
+          "table_rms": 1.5062415599822998,
+          "table_gradient_rms": 0.0017398875206708908,
+          "finite": true,
+          "table_cpu_only": true,
+          "gpu_peak_allocated_bytes": 9358457856
+        },
+        {
+          "cycle": 8,
+          "timed": true,
+          "wall_ms": 266.58083999791415,
+          "ms_per_global_step": 133.29041999895708,
+          "phase_cuda_ms": {
+            "plan_pull": 8.78166389465332,
+            "refresh": 3.077215939760208,
+            "stage": 1.4859200231730938,
+            "forward": 219.36166286468506,
+            "backward": 11.927712142467499,
+            "ngram_merge": 1.3520959988236427,
+            "dense_optimizer": 11.155327796936035,
+            "ngram_update_push": 9.235967636108398
+          },
+          "step_ms_without_cycle_pull": [
+            129.35330600157613,
+            136.0996500006877
+          ],
+          "mean_training_objective": 12.133100867271423,
+          "microbatch_objectives": [
+            12.11638069152832,
+            12.212920188903809,
+            12.239655494689941,
+            12.14980411529541,
+            12.231861114501953,
+            11.984261512756348,
+            12.022944450378418,
+            12.235587120056152,
+            12.065105438232422,
+            12.26275634765625,
+            12.07677173614502,
+            12.277579307556152,
+            12.256532669067383,
+            12.118185043334961,
+            11.857784271240234,
+            12.021484375
+          ],
+          "table_nonzero_rows": 372460,
+          "table_rms": 1.586164951324463,
+          "table_gradient_rms": 0.001840604585595429,
+          "finite": true,
+          "table_cpu_only": true,
+          "gpu_peak_allocated_bytes": 9358457856
+        },
+        {
+          "cycle": 9,
+          "timed": true,
+          "wall_ms": 266.61764100572327,
+          "ms_per_global_step": 133.30882050286164,
+          "phase_cuda_ms": {
+            "plan_pull": 8.734208106994629,
+            "refresh": 2.980640023946762,
+            "stage": 1.438624020665884,
+            "forward": 219.52527809143066,
+            "backward": 11.953759968280792,
+            "ngram_merge": 1.356512002646923,
+            "dense_optimizer": 11.185824394226074,
+            "ngram_update_push": 9.234111785888672
+          },
+          "step_ms_without_cycle_pull": [
+            128.80155599850696,
+            136.68544899701374
+          ],
+          "mean_training_objective": 11.972817838191986,
+          "microbatch_objectives": [
+            12.174781799316406,
+            11.90278434753418,
+            12.10318660736084,
+            11.993175506591797,
+            12.07034969329834,
+            12.122025489807129,
+            11.920732498168945,
+            11.86577033996582,
+            12.270565032958984,
+            11.859907150268555,
+            11.805909156799316,
+            11.9181489944458,
+            12.025444030761719,
+            11.716325759887695,
+            11.827543258666992,
+            11.988435745239258
+          ],
+          "table_nonzero_rows": 371736,
+          "table_rms": 1.661889672279358,
+          "table_gradient_rms": 0.0019225485157221556,
+          "finite": true,
+          "table_cpu_only": true,
+          "gpu_peak_allocated_bytes": 9358457856
+        }
+      ],
+      "limitations": [
+        "refactored descendant, not certified source",
+        "padded stock ARM CUDA12 FA3 instead of record mixed-width build",
+        "serial gradient accumulation and FP32 table merge, not distributed rounding",
+        "prepacked real data and prebuilt sampled candidate IDs outside timer; upload and weight gather inside",
+        "short training trajectory, no convergence/validation score",
+        "HBM store contains exact finite-trace row union, not a full-capacity HBM allocation"
+      ],
+      "completed": true,
+      "total_wall_seconds": 87.2217054290013,
+      "run_label": "host-compiled"
+    },
+    {
+      "scope": "Complete-step GH200 feasibility pilot, NOT a certified #92 reproduction.\nCurrent refactored descendant model; cached CUDA12 FA3 with zero-padded heads;\neight serialized logical ranks, real BOS-packed FineWeb, FP8 training, upstream\nANVIL/Adam and full-size CPU ngram store. HBM control stores only the exact rows\nvisited by this finite trace, without changing hashes/collisions or dropping rows.\nNo eight-device reduction-rounding equivalence or convergence claim.\n",
+      "mode": "hbm",
+      "upstream_commit": "4ea6b937337a4889b8cfe3f38a93d120048d8f71",
+      "source_sha256": "dfa34a6156141089cf467b60986abc74d6dbb07ed8d61dc356bde0f760df034c",
+      "attention": {
+        "kernel_revision": "7cb368cf8278b583132eb72cbf312d54586df2e2",
+        "binary_sha256": "474882b6dc65354889a9ac6489b3ffb9e449b74db1610f032e6b94d9d5788874",
+        "modification": "zero-pad unequal qk/v heads to same width; preserve explicit softmax scale; slice output to original v width"
+      },
+      "global_tokens": 131072,
+      "logical_ranks": 8,
+      "period": 2,
+      "stage": 0,
+      "cycles": 10,
+      "warmup_cycles": 4,
+      "full_logical_table_bytes": 129950023680,
+      "physical_store_bytes": 4321638912,
+      "trace_union_rows": 2813567,
+      "graphs": true,
+      "compile": true,
+      "startup_through_capture_seconds": 28.777148919005413,
+      "measurements": [
+        {
+          "cycle": 0,
+          "timed": false,
+          "wall_ms": 1320.7751410009223,
+          "ms_per_global_step": 660.3875705004612,
+          "phase_cuda_ms": {
+            "plan_pull": 8.197759628295898,
+            "refresh": 3.7489919662475586,
+            "stage": 1.8269120194017887,
+            "forward": 212.71628761291504,
+            "backward": 11.851904034614563,
+            "ngram_merge": 1.4368320181965828,
+            "dense_optimizer": 1072.7479782104492,
+            "ngram_update_push": 8.157759666442871
+          },
+          "step_ms_without_cycle_pull": [
+            1072.4129310037824,
+            240.09072899934836
+          ],
+          "mean_training_objective": 17.090967297554016,
+          "microbatch_objectives": [
+            17.018320083618164,
+            17.117874145507812,
+            17.140911102294922,
+            17.156198501586914,
+            17.17462921142578,
+            17.094696044921875,
+            17.198036193847656,
+            17.113561630249023,
+            16.941104888916016,
+            17.04668617248535,
+            17.250988006591797,
+            17.158523559570312,
+            17.021690368652344,
+            16.942045211791992,
+            17.085071563720703,
+            16.995140075683594
+          ],
+          "table_nonzero_rows": 372558,
+          "table_rms": 0.559997022151947,
+          "table_gradient_rms": 0.0015044548781588674,
+          "finite": true,
+          "table_cpu_only": null,
+          "gpu_peak_allocated_bytes": 13356722688
+        },
+        {
+          "cycle": 1,
+          "timed": false,
+          "wall_ms": 262.6163169989013,
+          "ms_per_global_step": 131.30815849945066,
+          "phase_cuda_ms": {
+            "plan_pull": 4.08684778213501,
+            "refresh": 3.310752034187317,
+            "stage": 1.5307199880480766,
+            "forward": 218.37734508514404,
+            "backward": 11.898592054843903,
+            "ngram_merge": 1.3465919867157936,
+            "dense_optimizer": 20.397536277770996,
+            "ngram_update_push": 1.5240639448165894
+          },
+          "step_ms_without_cycle_pull": [
+            131.81733199598966,
+            127.01843199465657
+          ],
+          "mean_training_objective": 14.698608636856079,
+          "microbatch_objectives": [
+            14.748957633972168,
+            15.044936180114746,
+            14.937131881713867,
+            15.015007019042969,
+            14.669207572937012,
+            14.556868553161621,
+            14.903898239135742,
+            14.838974952697754,
+            14.687114715576172,
+            14.510589599609375,
+            14.517696380615234,
+            14.481557846069336,
+            14.553069114685059,
+            14.583856582641602,
+            14.576122283935547,
+            14.552749633789062
+          ],
+          "table_nonzero_rows": 369637,
+          "table_rms": 0.7893965244293213,
+          "table_gradient_rms": 0.0027136169373989105,
+          "finite": true,
+          "table_cpu_only": null,
+          "gpu_peak_allocated_bytes": 13658510848
+        },
+        {
+          "cycle": 2,
+          "timed": false,
+          "wall_ms": 254.81626500550192,
+          "ms_per_global_step": 127.40813250275096,
+          "phase_cuda_ms": {
+            "plan_pull": 4.24502420425415,
+            "refresh": 2.9457600116729736,
+            "stage": 1.478752002120018,
+            "forward": 220.01702404022217,
+            "backward": 11.943008184432983,
+            "ngram_merge": 1.354272000491619,
+            "dense_optimizer": 11.157536029815674,
+            "ngram_update_push": 1.5536960363388062
+          },
+          "step_ms_without_cycle_pull": [
+            122.5272160008899,
+            128.3956949991989
+          ],
+          "mean_training_objective": 14.211457788944244,
+          "microbatch_objectives": [
+            14.18110466003418,
+            14.343687057495117,
+            14.703380584716797,
+            14.195655822753906,
+            14.362676620483398,
+            14.14707088470459,
+            14.585100173950195,
+            14.44010066986084,
+            13.947006225585938,
+            13.940074920654297,
+            14.185819625854492,
+            13.777956008911133,
+            14.160531044006348,
+            14.15424919128418,
+            14.09154224395752,
+            14.16736888885498
+          ],
+          "table_nonzero_rows": 372782,
+          "table_rms": 0.9701258540153503,
+          "table_gradient_rms": 0.003063941141590476,
+          "finite": true,
+          "table_cpu_only": null,
+          "gpu_peak_allocated_bytes": 13689055744
+        },
+        {
+          "cycle": 3,
+          "timed": false,
+          "wall_ms": 251.50563600618625,
+          "ms_per_global_step": 125.75281800309313,
+          "phase_cuda_ms": {
+            "plan_pull": 1.0940799713134766,
+            "refresh": 2.994912028312683,
+            "stage": 1.459840003401041,
+            "forward": 219.8380479812622,
+            "backward": 11.939007997512817,
+            "ngram_merge": 1.3608959913253784,
+            "dense_optimizer": 11.153151988983154,
+            "ngram_update_push": 1.538432002067566
+          },
+          "step_ms_without_cycle_pull": [
+            122.94648399983998,
+            127.83559300441993
+          ],
+          "mean_training_objective": 13.547789871692657,
+          "microbatch_objectives": [
+            13.565165519714355,
+            13.741717338562012,
+            13.858039855957031,
+            13.748801231384277,
+            13.745856285095215,
+            14.034523010253906,
+            13.863065719604492,
+            13.98435115814209,
+            13.333053588867188,
+            13.31802749633789,
+            13.243012428283691,
+            13.337921142578125,
+            13.46052360534668,
+            13.098808288574219,
+            13.124495506286621,
+            13.307275772094727
+          ],
+          "table_nonzero_rows": 372817,
+          "table_rms": 1.1138063669204712,
+          "table_gradient_rms": 0.002952860202640295,
+          "finite": true,
+          "table_cpu_only": null,
+          "gpu_peak_allocated_bytes": 13689055744
+        },
+        {
+          "cycle": 4,
+          "timed": true,
+          "wall_ms": 251.701191002212,
+          "ms_per_global_step": 125.850595501106,
+          "phase_cuda_ms": {
+            "plan_pull": 1.0695359706878662,
+            "refresh": 3.118272066116333,
+            "stage": 1.5043839924037457,
+            "forward": 219.93737316131592,
+            "backward": 11.921151995658875,
+            "ngram_merge": 1.342848002910614,
+            "dense_optimizer": 11.169312000274658,
+            "ngram_update_push": 1.5091840028762817
+          },
+          "step_ms_without_cycle_pull": [
+            123.380568002176,
+            127.59910999739077
+          ],
+          "mean_training_objective": 12.910335779190063,
+          "microbatch_objectives": [
+            13.041021347045898,
+            13.001437187194824,
+            13.303028106689453,
+            12.912391662597656,
+            12.86890983581543,
+            13.032983779907227,
+            13.254539489746094,
+            13.117536544799805,
+            12.960332870483398,
+            12.647370338439941,
+            12.798458099365234,
+            12.57508659362793,
+            12.605927467346191,
+            12.800551414489746,
+            12.930464744567871,
+            12.715332984924316
+          ],
+          "table_nonzero_rows": 365835,
+          "table_rms": 1.2279940843582153,
+          "table_gradient_rms": 0.0022626169957220554,
+          "finite": true,
+          "table_cpu_only": null,
+          "gpu_peak_allocated_bytes": 13689055744
+        },
+        {
+          "cycle": 5,
+          "timed": true,
+          "wall_ms": 255.4329110062099,
+          "ms_per_global_step": 127.71645550310495,
+          "phase_cuda_ms": {
+            "plan_pull": 4.353087902069092,
+            "refresh": 3.121119976043701,
+            "stage": 1.5218880362808704,
+            "forward": 220.28841590881348,
+            "backward": 11.946175992488861,
+            "ngram_merge": 1.3560639917850494,
+            "dense_optimizer": 11.149151802062988,
+            "ngram_update_push": 1.570688009262085
+          },
+          "step_ms_without_cycle_pull": [
+            123.31074400572106,
+            128.08794699958526
+          ],
+          "mean_training_objective": 12.751164078712463,
+          "microbatch_objectives": [
+            12.556135177612305,
+            13.040760040283203,
+            12.695329666137695,
+            12.719910621643066,
+            12.967916488647461,
+            12.658546447753906,
+            13.084722518920898,
+            12.830252647399902,
+            12.751752853393555,
+            12.783899307250977,
+            12.804370880126953,
+            12.465322494506836,
+            12.62315559387207,
+            12.793578147888184,
+            12.51064682006836,
+            12.732325553894043
+          ],
+          "table_nonzero_rows": 374463,
+          "table_rms": 1.3281126022338867,
+          "table_gradient_rms": 0.0017673693364486098,
+          "finite": true,
+          "table_cpu_only": null,
+          "gpu_peak_allocated_bytes": 13705415680
+        },
+        {
+          "cycle": 6,
+          "timed": true,
+          "wall_ms": 251.80122399615357,
+          "ms_per_global_step": 125.90061199807678,
+          "phase_cuda_ms": {
+            "plan_pull": 1.1121920347213745,
+            "refresh": 2.9539520740509033,
+            "stage": 1.4505920074880123,
+            "forward": 220.12448024749756,
+            "backward": 11.95113605260849,
+            "ngram_merge": 1.353535994887352,
+            "dense_optimizer": 11.208703994750977,
+            "ngram_update_push": 1.5200639963150024
+          },
+          "step_ms_without_cycle_pull": [
+            123.07893299293937,
+            127.95687399921007
+          ],
+          "mean_training_objective": 12.410176455974579,
+          "microbatch_objectives": [
+            12.407257080078125,
+            12.64150619506836,
+            12.392026901245117,
+            12.49876594543457,
+            12.410171508789062,
+            12.39235782623291,
+            12.441438674926758,
+            12.41850471496582,
+            12.536674499511719,
+            12.49510669708252,
+            12.390655517578125,
+            12.177496910095215,
+            12.413373947143555,
+            12.383520126342773,
+            12.324398040771484,
+            12.239568710327148
+          ],
+          "table_nonzero_rows": 369320,
+          "table_rms": 1.4214134216308594,
+          "table_gradient_rms": 0.0018150291871279478,
+          "finite": true,
+          "table_cpu_only": null,
+          "gpu_peak_allocated_bytes": 13705415680
+        },
+        {
+          "cycle": 7,
+          "timed": true,
+          "wall_ms": 252.5327199982712,
+          "ms_per_global_step": 126.2663599991356,
+          "phase_cuda_ms": {
+            "plan_pull": 1.1539520025253296,
+            "refresh": 2.8971519470214844,
+            "stage": 1.4785919934511185,
+            "forward": 220.81987285614014,
+            "backward": 11.94976007938385,
+            "ngram_merge": 1.3420160114765167,
+            "dense_optimizer": 11.18623971939087,
+            "ngram_update_push": 1.536512017250061
+          },
+          "step_ms_without_cycle_pull": [
+            123.52869899768848,
+            128.14868400164414
+          ],
+          "mean_training_objective": 12.249482035636902,
+          "microbatch_objectives": [
+            12.687821388244629,
+            12.353687286376953,
+            12.026593208312988,
+            12.09304428100586,
+            12.23165512084961,
+            12.387828826904297,
+            12.264305114746094,
+            12.397156715393066,
+            12.06576156616211,
+            12.090271949768066,
+            12.07754135131836,
+            12.33488655090332,
+            12.001914024353027,
+            12.35721206665039,
+            12.35409164428711,
+            12.26794147491455
+          ],
+          "table_nonzero_rows": 369949,
+          "table_rms": 1.5061975717544556,
+          "table_gradient_rms": 0.001736049773171544,
+          "finite": true,
+          "table_cpu_only": null,
+          "gpu_peak_allocated_bytes": 13705415680
+        },
+        {
+          "cycle": 8,
+          "timed": true,
+          "wall_ms": 251.10851299541537,
+          "ms_per_global_step": 125.55425649770768,
+          "phase_cuda_ms": {
+            "plan_pull": 1.0640640258789062,
+            "refresh": 2.766528010368347,
+            "stage": 1.4882879927754402,
+            "forward": 219.6295042037964,
+            "backward": 11.934816062450409,
+            "ngram_merge": 1.3630080074071884,
+            "dense_optimizer": 11.17308759689331,
+            "ngram_update_push": 1.5668799877166748
+          },
+          "step_ms_without_cycle_pull": [
+            123.19525399652775,
+            127.2128020063974
+          ],
+          "mean_training_objective": 12.133123695850372,
+          "microbatch_objectives": [
+            12.117080688476562,
+            12.212621688842773,
+            12.240046501159668,
+            12.150323867797852,
+            12.232078552246094,
+            11.984208106994629,
+            12.022703170776367,
+            12.235725402832031,
+            12.064950942993164,
+            12.263861656188965,
+            12.077408790588379,
+            12.27777099609375,
+            12.255472183227539,
+            12.117161750793457,
+            11.857566833496094,
+            12.020998001098633
+          ],
+          "table_nonzero_rows": 372460,
+          "table_rms": 1.5861400365829468,
+          "table_gradient_rms": 0.0018372361082583666,
+          "finite": true,
+          "table_cpu_only": null,
+          "gpu_peak_allocated_bytes": 13705415680
+        },
+        {
+          "cycle": 9,
+          "timed": true,
+          "wall_ms": 252.14833099744283,
+          "ms_per_global_step": 126.07416549872141,
+          "phase_cuda_ms": {
+            "plan_pull": 1.062559962272644,
+            "refresh": 2.7396799325942993,
+            "stage": 1.462431974709034,
+            "forward": 220.69030666351318,
+            "backward": 11.958432018756866,
+            "ngram_merge": 1.3579520210623741,
+            "dense_optimizer": 11.218528270721436,
+            "ngram_update_push": 1.5370559692382812
+          },
+          "step_ms_without_cycle_pull": [
+            123.79311700351536,
+            127.66183100029593
+          ],
+          "mean_training_objective": 11.97324401140213,
+          "microbatch_objectives": [
+            12.17474365234375,
+            11.902637481689453,
+            12.102764129638672,
+            11.994003295898438,
+            12.069923400878906,
+            12.122565269470215,
+            11.921682357788086,
+            11.866823196411133,
+            12.271047592163086,
+            11.86119270324707,
+            11.807554244995117,
+            11.917936325073242,
+            12.02608585357666,
+            11.717758178710938,
+            11.826994895935059,
+            11.988191604614258
+          ],
+          "table_nonzero_rows": 371736,
+          "table_rms": 1.6619151830673218,
+          "table_gradient_rms": 0.0019243255956098437,
+          "finite": true,
+          "table_cpu_only": null,
+          "gpu_peak_allocated_bytes": 13705415680
+        }
+      ],
+      "limitations": [
+        "refactored descendant, not certified source",
+        "padded stock ARM CUDA12 FA3 instead of record mixed-width build",
+        "serial gradient accumulation and FP32 table merge, not distributed rounding",
+        "prepacked real data and prebuilt sampled candidate IDs outside timer; upload and weight gather inside",
+        "short training trajectory, no convergence/validation score",
+        "HBM store contains exact finite-trace row union, not a full-capacity HBM allocation"
+      ],
+      "completed": true,
+      "total_wall_seconds": 32.62170836300356,
+      "run_label": "hbm-compiled"
+    },
+    {
+      "scope": "Complete-step GH200 feasibility pilot, NOT a certified #92 reproduction.\nCurrent refactored descendant model; cached CUDA12 FA3 with zero-padded heads;\neight serialized logical ranks, real BOS-packed FineWeb, FP8 training, upstream\nANVIL/Adam and full-size CPU ngram store. HBM control stores only the exact rows\nvisited by this finite trace, without changing hashes/collisions or dropping rows.\nNo eight-device reduction-rounding equivalence or convergence claim.\n",
+      "mode": "hbm",
+      "upstream_commit": "4ea6b937337a4889b8cfe3f38a93d120048d8f71",
+      "source_sha256": "dfa34a6156141089cf467b60986abc74d6dbb07ed8d61dc356bde0f760df034c",
+      "attention": {
+        "kernel_revision": "7cb368cf8278b583132eb72cbf312d54586df2e2",
+        "binary_sha256": "474882b6dc65354889a9ac6489b3ffb9e449b74db1610f032e6b94d9d5788874",
+        "modification": "zero-pad unequal qk/v heads to same width; preserve explicit softmax scale; slice output to original v width"
+      },
+      "global_tokens": 131072,
+      "logical_ranks": 8,
+      "period": 2,
+      "stage": 0,
+      "cycles": 10,
+      "warmup_cycles": 4,
+      "full_logical_table_bytes": 129950023680,
+      "physical_store_bytes": 4321638912,
+      "trace_union_rows": 2813567,
+      "graphs": true,
+      "compile": true,
+      "startup_through_capture_seconds": 28.10172448099911,
+      "measurements": [
+        {
+          "cycle": 0,
+          "timed": false,
+          "wall_ms": 1374.696621001931,
+          "ms_per_global_step": 687.3483105009655,
+          "phase_cuda_ms": {
+            "plan_pull": 8.418911933898926,
+            "refresh": 3.7305920124053955,
+            "stage": 1.822272002696991,
+            "forward": 213.76640129089355,
+            "backward": 11.886591970920563,
+            "ngram_merge": 1.4281599894165993,
+            "dense_optimizer": 1125.2618713378906,
+            "ngram_update_push": 8.289088249206543
+          },
+          "step_ms_without_cycle_pull": [
+            1125.401088000217,
+            240.7984489982482
+          ],
+          "mean_training_objective": 17.090967297554016,
+          "microbatch_objectives": [
+            17.018320083618164,
+            17.117874145507812,
+            17.140911102294922,
+            17.156198501586914,
+            17.17462921142578,
+            17.094696044921875,
+            17.198036193847656,
+            17.113561630249023,
+            16.941104888916016,
+            17.04668617248535,
+            17.250988006591797,
+            17.158523559570312,
+            17.021690368652344,
+            16.942045211791992,
+            17.085071563720703,
+            16.995140075683594
+          ],
+          "table_nonzero_rows": 372558,
+          "table_rms": 0.559997022151947,
+          "table_gradient_rms": 0.0015044548781588674,
+          "finite": true,
+          "table_cpu_only": null,
+          "gpu_peak_allocated_bytes": 13356722688
+        },
+        {
+          "cycle": 1,
+          "timed": false,
+          "wall_ms": 261.2647179994383,
+          "ms_per_global_step": 130.63235899971914,
+          "phase_cuda_ms": {
+            "plan_pull": 4.037919998168945,
+            "refresh": 3.2963199615478516,
+            "stage": 1.5718720108270645,
+            "forward": 216.9844799041748,
+            "backward": 11.931167960166931,
+            "ngram_merge": 1.349823996424675,
+            "dense_optimizer": 20.432447910308838,
+            "ngram_update_push": 1.5338879823684692
+          },
+          "step_ms_without_cycle_pull": [
+            131.32471900462406,
+            126.21003900130745
+          ],
+          "mean_training_objective": 14.698644161224365,
+          "microbatch_objectives": [
+            14.748860359191895,
+            15.045171737670898,
+            14.937387466430664,
+            15.015106201171875,
+            14.66950511932373,
+            14.556943893432617,
+            14.903905868530273,
+            14.839232444763184,
+            14.686918258666992,
+            14.510794639587402,
+            14.517756462097168,
+            14.481348037719727,
+            14.552730560302734,
+            14.583796501159668,
+            14.576210975646973,
+            14.552638053894043
+          ],
+          "table_nonzero_rows": 369637,
+          "table_rms": 0.7893965840339661,
+          "table_gradient_rms": 0.002713561523705721,
+          "finite": true,
+          "table_cpu_only": null,
+          "gpu_peak_allocated_bytes": 13658510848
+        },
+        {
+          "cycle": 2,
+          "timed": false,
+          "wall_ms": 253.7963819995639,
+          "ms_per_global_step": 126.89819099978195,
+          "phase_cuda_ms": {
+            "plan_pull": 4.157951831817627,
+            "refresh": 2.915071964263916,
+            "stage": 1.5171199925243855,
+            "forward": 219.11702346801758,
+            "backward": 11.956351935863495,
+            "ngram_merge": 1.3419199958443642,
+            "dense_optimizer": 11.1527681350708,
+            "ngram_update_push": 1.5136640071868896
+          },
+          "step_ms_without_cycle_pull": [
+            122.72580900025787,
+            127.24441799946362
+          ],
+          "mean_training_objective": 14.211212277412415,
+          "microbatch_objectives": [
+            14.180763244628906,
+            14.342903137207031,
+            14.702430725097656,
+            14.194613456726074,
+            14.361790657043457,
+            14.14617919921875,
+            14.584256172180176,
+            14.439376831054688,
+            13.947502136230469,
+            13.940715789794922,
+            14.185609817504883,
+            13.777985572814941,
+            14.161012649536133,
+            14.15455436706543,
+            14.091742515563965,
+            14.167960166931152
+          ],
+          "table_nonzero_rows": 372782,
+          "table_rms": 0.9701316356658936,
+          "table_gradient_rms": 0.003064419375732541,
+          "finite": true,
+          "table_cpu_only": null,
+          "gpu_peak_allocated_bytes": 13689055744
+        },
+        {
+          "cycle": 3,
+          "timed": false,
+          "wall_ms": 251.68243900407106,
+          "ms_per_global_step": 125.84121950203553,
+          "phase_cuda_ms": {
+            "plan_pull": 1.1344319581985474,
+            "refresh": 3.0357439517974854,
+            "stage": 1.468351986259222,
+            "forward": 219.90207958221436,
+            "backward": 11.961855947971344,
+            "ngram_merge": 1.3625600039958954,
+            "dense_optimizer": 11.166943550109863,
+            "ngram_update_push": 1.5254080295562744
+          },
+          "step_ms_without_cycle_pull": [
+            123.27941499825101,
+            127.6225350011373
+          ],
+          "mean_training_objective": 13.547789514064789,
+          "microbatch_objectives": [
+            13.564600944519043,
+            13.74148941040039,
+            13.858216285705566,
+            13.748941421508789,
+            13.745274543762207,
+            14.034330368041992,
+            13.86364459991455,
+            13.984249114990234,
+            13.333208084106445,
+            13.317975997924805,
+            13.242898941040039,
+            13.337924003601074,
+            13.460172653198242,
+            13.098895072937012,
+            13.124841690063477,
+            13.307969093322754
+          ],
+          "table_nonzero_rows": 372817,
+          "table_rms": 1.1138116121292114,
+          "table_gradient_rms": 0.0029550709296017885,
+          "finite": true,
+          "table_cpu_only": null,
+          "gpu_peak_allocated_bytes": 13689055744
+        },
+        {
+          "cycle": 4,
+          "timed": true,
+          "wall_ms": 251.70189500204287,
+          "ms_per_global_step": 125.85094750102144,
+          "phase_cuda_ms": {
+            "plan_pull": 1.1710400581359863,
+            "refresh": 3.0117119550704956,
+            "stage": 1.4632320180535316,
+            "forward": 219.9421100616455,
+            "backward": 11.941024005413055,
+            "ngram_merge": 1.3398399949073792,
+            "dense_optimizer": 11.181024074554443,
+            "ngram_update_push": 1.5083199739456177
+          },
+          "step_ms_without_cycle_pull": [
+            123.3348730020225,
+            127.51530099922093
+          ],
+          "mean_training_objective": 12.90992158651352,
+          "microbatch_objectives": [
+            13.041439056396484,
+            13.002165794372559,
+            13.303339004516602,
+            12.912704467773438,
+            12.868888854980469,
+            13.03336238861084,
+            13.255090713500977,
+            13.117515563964844,
+            12.959148406982422,
+            12.64567756652832,
+            12.79806137084961,
+            12.573548316955566,
+            12.605045318603516,
+            12.799242973327637,
+            12.92915153503418,
+            12.714364051818848
+          ],
+          "table_nonzero_rows": 365835,
+          "table_rms": 1.227994680404663,
+          "table_gradient_rms": 0.0022644700948148966,
+          "finite": true,
+          "table_cpu_only": null,
+          "gpu_peak_allocated_bytes": 13689055744
+        },
+        {
+          "cycle": 5,
+          "timed": true,
+          "wall_ms": 255.43630299944198,
+          "ms_per_global_step": 127.71815149972099,
+          "phase_cuda_ms": {
+            "plan_pull": 5.016672134399414,
+            "refresh": 3.0103999376296997,
+            "stage": 1.519232016056776,
+            "forward": 219.71231842041016,
+            "backward": 11.974720001220703,
+            "ngram_merge": 1.3586559817194939,
+            "dense_optimizer": 11.157792091369629,
+            "ngram_update_push": 1.537343978881836
+          },
+          "step_ms_without_cycle_pull": [
+            123.02878899936331,
+            127.6787270035129
+          ],
+          "mean_training_objective": 12.74967759847641,
+          "microbatch_objectives": [
+            12.552939414978027,
+            13.037314414978027,
+            12.691731452941895,
+            12.716716766357422,
+            12.964271545410156,
+            12.656332969665527,
+            13.080144882202148,
+            12.826066970825195,
+            12.751895904541016,
+            12.784712791442871,
+            12.805255889892578,
+            12.465058326721191,
+            12.6235933303833,
+            12.794820785522461,
+            12.510030746459961,
+            12.733955383300781
+          ],
+          "table_nonzero_rows": 374463,
+          "table_rms": 1.328050971031189,
+          "table_gradient_rms": 0.0017669659573584795,
+          "finite": true,
+          "table_cpu_only": null,
+          "gpu_peak_allocated_bytes": 13706726400
+        },
+        {
+          "cycle": 6,
+          "timed": true,
+          "wall_ms": 252.62776100134943,
+          "ms_per_global_step": 126.31388050067471,
+          "phase_cuda_ms": {
+            "plan_pull": 1.111807942390442,
+            "refresh": 3.075360059738159,
+            "stage": 1.459424003958702,
+            "forward": 220.77167987823486,
+            "backward": 11.989119946956635,
+            "ngram_merge": 1.3423359915614128,
+            "dense_optimizer": 11.197216033935547,
+            "ngram_update_push": 1.545632004737854
+          },
+          "step_ms_without_cycle_pull": [
+            123.59429900243413,
+            128.24206100049196
+          ],
+          "mean_training_objective": 12.413398802280426,
+          "microbatch_objectives": [
+            12.412274360656738,
+            12.644964218139648,
+            12.395072937011719,
+            12.503021240234375,
+            12.414745330810547,
+            12.393893241882324,
+            12.445158958435059,
+            12.421293258666992,
+            12.53973388671875,
+            12.497408866882324,
+            12.39448070526123,
+            12.18045711517334,
+            12.417033195495605,
+            12.384861946105957,
+            12.327727317810059,
+            12.242254257202148
+          ],
+          "table_nonzero_rows": 369320,
+          "table_rms": 1.4216012954711914,
+          "table_gradient_rms": 0.0018641658825799823,
+          "finite": true,
+          "table_cpu_only": null,
+          "gpu_peak_allocated_bytes": 13706726400
+        },
+        {
+          "cycle": 7,
+          "timed": true,
+          "wall_ms": 252.2661889961455,
+          "ms_per_global_step": 126.13309449807275,
+          "phase_cuda_ms": {
+            "plan_pull": 1.08515202999115,
+            "refresh": 3.0528639554977417,
+            "stage": 1.4901439845561981,
+            "forward": 220.53660678863525,
+            "backward": 11.941472113132477,
+            "ngram_merge": 1.3471999987959862,
+            "dense_optimizer": 11.149856090545654,
+            "ngram_update_push": 1.520095944404602
+          },
+          "step_ms_without_cycle_pull": [
+            123.83519700233592,
+            127.6817990001291
+          ],
+          "mean_training_objective": 12.250006377696991,
+          "microbatch_objectives": [
+            12.690196990966797,
+            12.355147361755371,
+            12.029108047485352,
+            12.09444808959961,
+            12.232769012451172,
+            12.388708114624023,
+            12.265939712524414,
+            12.398983001708984,
+            12.064987182617188,
+            12.089546203613281,
+            12.078180313110352,
+            12.333930969238281,
+            12.002806663513184,
+            12.354767799377441,
+            12.353328704833984,
+            12.267253875732422
+          ],
+          "table_nonzero_rows": 369949,
+          "table_rms": 1.506178617477417,
+          "table_gradient_rms": 0.0017394404858350754,
+          "finite": true,
+          "table_cpu_only": null,
+          "gpu_peak_allocated_bytes": 13706726400
+        },
+        {
+          "cycle": 8,
+          "timed": true,
+          "wall_ms": 251.69175100018037,
+          "ms_per_global_step": 125.84587550009019,
+          "phase_cuda_ms": {
+            "plan_pull": 1.075584053993225,
+            "refresh": 2.6585599184036255,
+            "stage": 1.4592640027403831,
+            "forward": 220.38332653045654,
+            "backward": 11.971200048923492,
+            "ngram_merge": 1.3579839989542961,
+            "dense_optimizer": 11.137824058532715,
+            "ngram_update_push": 1.508895993232727
+          },
+          "step_ms_without_cycle_pull": [
+            123.267382994527,
+            127.69936800032156
+          ],
+          "mean_training_objective": 12.134079694747925,
+          "microbatch_objectives": [
+            12.118550300598145,
+            12.214208602905273,
+            12.241483688354492,
+            12.152225494384766,
+            12.231804847717285,
+            11.984441757202148,
+            12.022527694702148,
+            12.23737907409668,
+            12.064539909362793,
+            12.267616271972656,
+            12.078912734985352,
+            12.277847290039062,
+            12.257340431213379,
+            12.117573738098145,
+            11.857423782348633,
+            12.02139949798584
+          ],
+          "table_nonzero_rows": 372460,
+          "table_rms": 1.5860844850540161,
+          "table_gradient_rms": 0.0018468413036316633,
+          "finite": true,
+          "table_cpu_only": null,
+          "gpu_peak_allocated_bytes": 13706726400
+        },
+        {
+          "cycle": 9,
+          "timed": true,
+          "wall_ms": 250.56361099996138,
+          "ms_per_global_step": 125.28180549998069,
+          "phase_cuda_ms": {
+            "plan_pull": 1.0757440328598022,
+            "refresh": 2.5319679975509644,
+            "stage": 1.451391987502575,
+            "forward": 219.44236660003662,
+            "backward": 11.94352000951767,
+            "ngram_merge": 1.344799980521202,
+            "dense_optimizer": 11.14083194732666,
+            "ngram_update_push": 1.5250240564346313
+          },
+          "step_ms_without_cycle_pull": [
+            123.27743099740474,
+            126.57583600230282
+          ],
+          "mean_training_objective": 11.976990461349487,
+          "microbatch_objectives": [
+            12.179869651794434,
+            11.908679962158203,
+            12.106649398803711,
+            12.000346183776855,
+            12.073661804199219,
+            12.126090049743652,
+            11.927042961120605,
+            11.871089935302734,
+            12.274596214294434,
+            11.864731788635254,
+            11.8106107711792,
+            11.917598724365234,
+            12.029870986938477,
+            11.720341682434082,
+            11.830292701721191,
+            11.990374565124512
+          ],
+          "table_nonzero_rows": 371736,
+          "table_rms": 1.6621198654174805,
+          "table_gradient_rms": 0.001934754429385066,
+          "finite": true,
+          "table_cpu_only": null,
+          "gpu_peak_allocated_bytes": 13706726400
+        }
+      ],
+      "limitations": [
+        "refactored descendant, not certified source",
+        "padded stock ARM CUDA12 FA3 instead of record mixed-width build",
+        "serial gradient accumulation and FP32 table merge, not distributed rounding",
+        "prepacked real data and prebuilt sampled candidate IDs outside timer; upload and weight gather inside",
+        "short training trajectory, no convergence/validation score",
+        "HBM store contains exact finite-trace row union, not a full-capacity HBM allocation"
+      ],
+      "completed": true,
+      "total_wall_seconds": 32.02088649300276,
+      "run_label": "hbm-repeat"
+    },
+    {
+      "scope": "Complete-step GH200 feasibility pilot, NOT a certified #92 reproduction.\nCurrent refactored descendant model; cached CUDA12 FA3 with zero-padded heads;\neight serialized logical ranks, real BOS-packed FineWeb, FP8 training, upstream\nANVIL/Adam and full-size CPU ngram store. HBM control stores only the exact rows\nvisited by this finite trace, without changing hashes/collisions or dropping rows.\nNo eight-device reduction-rounding equivalence or convergence claim.\n",
+      "mode": "host",
+      "upstream_commit": "4ea6b937337a4889b8cfe3f38a93d120048d8f71",
+      "source_sha256": "dfa34a6156141089cf467b60986abc74d6dbb07ed8d61dc356bde0f760df034c",
+      "attention": {
+        "kernel_revision": "7cb368cf8278b583132eb72cbf312d54586df2e2",
+        "binary_sha256": "474882b6dc65354889a9ac6489b3ffb9e449b74db1610f032e6b94d9d5788874",
+        "modification": "zero-pad unequal qk/v heads to same width; preserve explicit softmax scale; slice output to original v width"
+      },
+      "global_tokens": 131072,
+      "logical_ranks": 8,
+      "period": 2,
+      "stage": 0,
+      "cycles": 10,
+      "warmup_cycles": 4,
+      "full_logical_table_bytes": 129950023680,
+      "physical_store_bytes": 129950023680,
+      "trace_union_rows": 2813567,
+      "graphs": true,
+      "compile": true,
+      "startup_through_capture_seconds": 29.41573805000371,
+      "measurements": [
+        {
+          "cycle": 0,
+          "timed": false,
+          "wall_ms": 1347.9120019983384,
+          "ms_per_global_step": 673.9560009991692,
+          "phase_cuda_ms": {
+            "plan_pull": 13.780672073364258,
+            "refresh": 3.57916796207428,
+            "stage": 1.879135973751545,
+            "forward": 213.62048149108887,
+            "backward": 11.78083199262619,
+            "ngram_merge": 1.4222080036997795,
+            "dense_optimizer": 1086.544807434082,
+            "ngram_update_push": 15.213600158691406
+          },
+          "step_ms_without_cycle_pull": [
+            1086.6984909953317,
+            247.53707699710503
+          ],
+          "mean_training_objective": 17.090967297554016,
+          "microbatch_objectives": [
+            17.018320083618164,
+            17.117874145507812,
+            17.140911102294922,
+            17.156198501586914,
+            17.17462921142578,
+            17.094696044921875,
+            17.198036193847656,
+            17.113561630249023,
+            16.941104888916016,
+            17.04668617248535,
+            17.250988006591797,
+            17.158523559570312,
+            17.021690368652344,
+            16.942045211791992,
+            17.085071563720703,
+            16.995140075683594
+          ],
+          "table_nonzero_rows": 372558,
+          "table_rms": 0.559997022151947,
+          "table_gradient_rms": 0.0015044548781588674,
+          "finite": true,
+          "table_cpu_only": true,
+          "gpu_peak_allocated_bytes": 9287710720
+        },
+        {
+          "cycle": 1,
+          "timed": false,
+          "wall_ms": 276.8981580011314,
+          "ms_per_global_step": 138.4490790005657,
+          "phase_cuda_ms": {
+            "plan_pull": 12.01427173614502,
+            "refresh": 2.2323520481586456,
+            "stage": 1.2849920056760311,
+            "forward": 218.33660793304443,
+            "backward": 11.817888081073761,
+            "ngram_merge": 1.3521280065178871,
+            "dense_optimizer": 20.499648094177246,
+            "ngram_update_push": 9.225791931152344
+          },
+          "step_ms_without_cycle_pull": [
+            137.55426999705378,
+            135.01504200394265
+          ],
+          "mean_training_objective": 14.698627293109894,
+          "microbatch_objectives": [
+            14.748889923095703,
+            15.045134544372559,
+            14.937466621398926,
+            15.015335083007812,
+            14.669387817382812,
+            14.55683708190918,
+            14.90376091003418,
+            14.838945388793945,
+            14.687063217163086,
+            14.511061668395996,
+            14.517446517944336,
+            14.481572151184082,
+            14.552692413330078,
+            14.5836763381958,
+            14.576013565063477,
+            14.552753448486328
+          ],
+          "table_nonzero_rows": 369637,
+          "table_rms": 0.7893975377082825,
+          "table_gradient_rms": 0.002713842084631324,
+          "finite": true,
+          "table_cpu_only": true,
+          "gpu_peak_allocated_bytes": 9311137280
+        },
+        {
+          "cycle": 2,
+          "timed": false,
+          "wall_ms": 304.13227399549214,
+          "ms_per_global_step": 152.06613699774607,
+          "phase_cuda_ms": {
+            "plan_pull": 48.825950622558594,
+            "refresh": 2.3594239354133606,
+            "stage": 1.227104015648365,
+            "forward": 218.15158367156982,
+            "backward": 11.82937604188919,
+            "ngram_merge": 1.3575039878487587,
+            "dense_optimizer": 11.0763840675354,
+            "ngram_update_push": 9.14419174194336
+          },
+          "step_ms_without_cycle_pull": [
+            127.78453400096623,
+            135.11126799858175
+          ],
+          "mean_training_objective": 14.211564004421234,
+          "microbatch_objectives": [
+            14.1810302734375,
+            14.343521118164062,
+            14.703354835510254,
+            14.195621490478516,
+            14.362469673156738,
+            14.146416664123535,
+            14.585308074951172,
+            14.440056800842285,
+            13.947309494018555,
+            13.94015121459961,
+            14.186164855957031,
+            13.778568267822266,
+            14.160957336425781,
+            14.154633522033691,
+            14.091794967651367,
+            14.167665481567383
+          ],
+          "table_nonzero_rows": 372782,
+          "table_rms": 0.9701331257820129,
+          "table_gradient_rms": 0.003064342774450779,
+          "finite": true,
+          "table_cpu_only": true,
+          "gpu_peak_allocated_bytes": 9341277696
+        },
+        {
+          "cycle": 3,
+          "timed": false,
+          "wall_ms": 265.63768699998036,
+          "ms_per_global_step": 132.81884349999018,
+          "phase_cuda_ms": {
+            "plan_pull": 8.648991584777832,
+            "refresh": 2.718431979417801,
+            "stage": 1.3353280127048492,
+            "forward": 219.1777572631836,
+            "backward": 11.833856105804443,
+            "ngram_merge": 1.3586559817194939,
+            "dense_optimizer": 11.16588830947876,
+            "ngram_update_push": 9.23084831237793
+          },
+          "step_ms_without_cycle_pull": [
+            128.75443099619588,
+            135.89476399647538
+          ],
+          "mean_training_objective": 13.549175798892975,
+          "microbatch_objectives": [
+            13.56768798828125,
+            13.744348526000977,
+            13.860982894897461,
+            13.753074645996094,
+            13.74830436706543,
+            14.037708282470703,
+            13.865789413452148,
+            13.98720932006836,
+            13.333044052124023,
+            13.318132400512695,
+            13.24277400970459,
+            13.337495803833008,
+            13.460136413574219,
+            13.098905563354492,
+            13.124126434326172,
+            13.307092666625977
+          ],
+          "table_nonzero_rows": 372817,
+          "table_rms": 1.1138538122177124,
+          "table_gradient_rms": 0.0029601675923913717,
+          "finite": true,
+          "table_cpu_only": true,
+          "gpu_peak_allocated_bytes": 9341352448
+        },
+        {
+          "cycle": 4,
+          "timed": true,
+          "wall_ms": 264.3989220014191,
+          "ms_per_global_step": 132.19946100070956,
+          "phase_cuda_ms": {
+            "plan_pull": 8.608063697814941,
+            "refresh": 3.064063996076584,
+            "stage": 1.3289279788732529,
+            "forward": 217.76512145996094,
+            "backward": 11.811103999614716,
+            "ngram_merge": 1.3387839868664742,
+            "dense_optimizer": 11.137920379638672,
+            "ngram_update_push": 9.146623611450195
+          },
+          "step_ms_without_cycle_pull": [
+            127.78712499857647,
+            135.53344899992226
+          ],
+          "mean_training_objective": 12.910224080085754,
+          "microbatch_objectives": [
+            13.041656494140625,
+            13.001967430114746,
+            13.303720474243164,
+            12.913094520568848,
+            12.869485855102539,
+            13.033848762512207,
+            13.255598068237305,
+            13.117849349975586,
+            12.959575653076172,
+            12.646429061889648,
+            12.798421859741211,
+            12.574043273925781,
+            12.605299949645996,
+            12.799278259277344,
+            12.928850173950195,
+            12.714466094970703
+          ],
+          "table_nonzero_rows": 365835,
+          "table_rms": 1.2279690504074097,
+          "table_gradient_rms": 0.00226500048302114,
+          "finite": true,
+          "table_cpu_only": true,
+          "gpu_peak_allocated_bytes": 9341352448
+        },
+        {
+          "cycle": 5,
+          "timed": true,
+          "wall_ms": 269.96214899554616,
+          "ms_per_global_step": 134.98107449777308,
+          "phase_cuda_ms": {
+            "plan_pull": 12.03929615020752,
+            "refresh": 3.1561920046806335,
+            "stage": 1.3595839813351631,
+            "forward": 219.52233695983887,
+            "backward": 11.851456046104431,
+            "ngram_merge": 1.3593600168824196,
+            "dense_optimizer": 11.17731237411499,
+            "ngram_update_push": 9.306079864501953
+          },
+          "step_ms_without_cycle_pull": [
+            129.14637199719436,
+            136.40024200140033
+          ],
+          "mean_training_objective": 12.75036996603012,
+          "microbatch_objectives": [
+            12.553594589233398,
+            13.03816032409668,
+            12.6929349899292,
+            12.717918395996094,
+            12.965150833129883,
+            12.656990051269531,
+            13.081403732299805,
+            12.827001571655273,
+            12.75195598602295,
+            12.784931182861328,
+            12.805806159973145,
+            12.465620040893555,
+            12.624441146850586,
+            12.7942476272583,
+            12.511277198791504,
+            12.734485626220703
+          ],
+          "table_nonzero_rows": 374463,
+          "table_rms": 1.3281112909317017,
+          "table_gradient_rms": 0.0017680155579000711,
+          "finite": true,
+          "table_cpu_only": true,
+          "gpu_peak_allocated_bytes": 9359178752
+        },
+        {
+          "cycle": 6,
+          "timed": true,
+          "wall_ms": 264.69054100016365,
+          "ms_per_global_step": 132.34527050008182,
+          "phase_cuda_ms": {
+            "plan_pull": 8.567872047424316,
+            "refresh": 2.3271360397338867,
+            "stage": 1.2308159992098808,
+            "forward": 218.90454387664795,
+            "backward": 11.835231959819794,
+            "ngram_merge": 1.347680002450943,
+            "dense_optimizer": 11.07257604598999,
+            "ngram_update_push": 9.216095924377441
+          },
+          "step_ms_without_cycle_pull": [
+            128.522332997818,
+            135.19885300047463
+          ],
+          "mean_training_objective": 12.413079619407654,
+          "microbatch_objectives": [
+            12.412461280822754,
+            12.645975112915039,
+            12.394323348999023,
+            12.502304077148438,
+            12.414730072021484,
+            12.393505096435547,
+            12.445048332214355,
+            12.4216947555542,
+            12.539671897888184,
+            12.497505187988281,
+            12.39360523223877,
+            12.179571151733398,
+            12.41639518737793,
+            12.38551139831543,
+            12.32604694366455,
+            12.240924835205078
+          ],
+          "table_nonzero_rows": 369320,
+          "table_rms": 1.4215189218521118,
+          "table_gradient_rms": 0.0018391882767900825,
+          "finite": true,
+          "table_cpu_only": true,
+          "gpu_peak_allocated_bytes": 9359178752
+        },
+        {
+          "cycle": 7,
+          "timed": true,
+          "wall_ms": 265.187026001513,
+          "ms_per_global_step": 132.5935130007565,
+          "phase_cuda_ms": {
+            "plan_pull": 8.59001636505127,
+            "refresh": 2.212384045124054,
+            "stage": 1.2481600157916546,
+            "forward": 219.445086479187,
+            "backward": 11.841600060462952,
+            "ngram_merge": 1.3505920097231865,
+            "dense_optimizer": 11.169568061828613,
+            "ngram_update_push": 9.14252758026123
+          },
+          "step_ms_without_cycle_pull": [
+            129.0384020030615,
+            135.1788849933655
+          ],
+          "mean_training_objective": 12.24968945980072,
+          "microbatch_objectives": [
+            12.6896333694458,
+            12.354698181152344,
+            12.028518676757812,
+            12.094722747802734,
+            12.23204231262207,
+            12.387975692749023,
+            12.265020370483398,
+            12.397598266601562,
+            12.064323425292969,
+            12.088932991027832,
+            12.079107284545898,
+            12.334098815917969,
+            12.001776695251465,
+            12.3551025390625,
+            12.353188514709473,
+            12.268291473388672
+          ],
+          "table_nonzero_rows": 369949,
+          "table_rms": 1.5061274766921997,
+          "table_gradient_rms": 0.0017386137042194605,
+          "finite": true,
+          "table_cpu_only": true,
+          "gpu_peak_allocated_bytes": 9359178752
+        },
+        {
+          "cycle": 8,
+          "timed": true,
+          "wall_ms": 263.66684999811696,
+          "ms_per_global_step": 131.83342499905848,
+          "phase_cuda_ms": {
+            "plan_pull": 8.652352333068848,
+            "refresh": 1.9891199469566345,
+            "stage": 1.2515520080924034,
+            "forward": 218.10400104522705,
+            "backward": 11.82774406671524,
+            "ngram_merge": 1.3509760051965714,
+            "dense_optimizer": 11.148927688598633,
+            "ngram_update_push": 9.17199993133545
+          },
+          "step_ms_without_cycle_pull": [
+            128.46124500356382,
+            134.25167500099633
+          ],
+          "mean_training_objective": 12.134172260761261,
+          "microbatch_objectives": [
+            12.118245124816895,
+            12.214258193969727,
+            12.24144458770752,
+            12.152104377746582,
+            12.232699394226074,
+            11.983846664428711,
+            12.023109436035156,
+            12.236845016479492,
+            12.064348220825195,
+            12.26671028137207,
+            12.079182624816895,
+            12.277956008911133,
+            12.257972717285156,
+            12.117713928222656,
+            11.858173370361328,
+            12.022146224975586
+          ],
+          "table_nonzero_rows": 372460,
+          "table_rms": 1.5860025882720947,
+          "table_gradient_rms": 0.0018368527526035905,
+          "finite": true,
+          "table_cpu_only": true,
+          "gpu_peak_allocated_bytes": 9359178752
+        },
+        {
+          "cycle": 9,
+          "timed": true,
+          "wall_ms": 264.60081100231037,
+          "ms_per_global_step": 132.30040550115518,
+          "phase_cuda_ms": {
+            "plan_pull": 8.649920463562012,
+            "refresh": 2.371231973171234,
+            "stage": 1.3063999973237514,
+            "forward": 218.60560035705566,
+            "backward": 11.832095980644226,
+            "ngram_merge": 1.3512639999389648,
+            "dense_optimizer": 11.094592094421387,
+            "ngram_update_push": 9.200096130371094
+          },
+          "step_ms_without_cycle_pull": [
+            128.8710419976269,
+            134.70275099825813
+          ],
+          "mean_training_objective": 11.9769646525383,
+          "microbatch_objectives": [
+            12.179010391235352,
+            11.907737731933594,
+            12.106969833374023,
+            11.999811172485352,
+            12.073686599731445,
+            12.12654972076416,
+            11.927289962768555,
+            11.871358871459961,
+            12.274026870727539,
+            11.864349365234375,
+            11.810872077941895,
+            11.918930053710938,
+            12.029623031616211,
+            11.720388412475586,
+            11.82968521118164,
+            11.991145133972168
+          ],
+          "table_nonzero_rows": 371736,
+          "table_rms": 1.662105917930603,
+          "table_gradient_rms": 0.0019297642866149545,
+          "finite": true,
+          "table_cpu_only": true,
+          "gpu_peak_allocated_bytes": 9359178752
+        }
+      ],
+      "limitations": [
+        "refactored descendant, not certified source",
+        "padded stock ARM CUDA12 FA3 instead of record mixed-width build",
+        "serial gradient accumulation and FP32 table merge, not distributed rounding",
+        "prepacked real data and prebuilt sampled candidate IDs outside timer; upload and weight gather inside",
+        "short training trajectory, no convergence/validation score",
+        "HBM store contains exact finite-trace row union, not a full-capacity HBM allocation"
+      ],
+      "completed": true,
+      "total_wall_seconds": 33.942525844002375,
+      "run_label": "host-repeat"
+    }
+  ],
+  "captured_vs_uncaptured_backward": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "ve_gate_bank",
+        "relative_l2_error": 0.0,
+        "max_absolute_error": 0.0,
+        "reference_l2": 0.10884105414152145
+      },
+      {
+        "name": "qk_bank",
+        "relative_l2_error": 0.0,
+        "max_absolute_error": 0.0,
+        "reference_l2": 43.70824432373047
+      },
+      {
+        "name": "vo_bank",
+        "relative_l2_error": 0.0,
+        "max_absolute_error": 0.0,
+        "reference_l2": 216.68055725097656
+      },
+      {
+        "name": "mlp_bank",
+        "relative_l2_error": 0.0,
+        "max_absolute_error": 0.0,
+        "reference_l2": 3191.524169921875
+      },
+      {
+        "name": "post_lambdas",
+        "relative_l2_error": 0.0,
+        "max_absolute_error": 0.0,
+        "reference_l2": 2.7481350898742676
+      },
+      {
+        "name": "resid_lambdas",
+        "relative_l2_error": 0.0,
+        "max_absolute_error": 0.0,
+        "reference_l2": 8.112974166870117
+      },
+      {
+        "name": "scalars",
+        "relative_l2_error": 0.0,
+        "max_absolute_error": 0.0,
+        "reference_l2": 271.9258728027344
+      },
+      {
+        "name": "mudd_w1",
+        "relative_l2_error": 0.0,
+        "max_absolute_error": 0.0,
+        "reference_l2": 0.0
+      },
+      {
+        "name": "mudd_w2",
+        "relative_l2_error": 0.0,
+        "max_absolute_error": 0.0,
+        "reference_l2": 4.967179775238037
+      },
+      {
+        "name": "mudd_b2",
+        "relative_l2_error": 0.0,
+        "max_absolute_error": 0.0,
+        "reference_l2": 0.8405443429946899
+      },
+      {
+        "name": "mudd_w2g",
+        "relative_l2_error": 0.0,
+        "max_absolute_error": 0.0,
+        "reference_l2": 69.18267059326172
+      },
+      {
+        "name": "_mudd_gate_scale",
+        "relative_l2_error": 0.0,
+        "max_absolute_error": 0.0,
+        "reference_l2": 1.375
+      },
+      {
+        "name": "mudd_gate_w1",
+        "relative_l2_error": 0.0,
+        "max_absolute_error": 0.0,
+        "reference_l2": 0.0
+      },
+      {
+        "name": "mudd_gate_w2",
+        "relative_l2_error": 0.0,
+        "max_absolute_error": 0.0,
+        "reference_l2": 0.5047942996025085
+      },
+      {
+        "name": "mudd_gate_b2",
+        "relative_l2_error": 0.0,
+        "max_absolute_error": 0.0,
+        "reference_l2": 0.26997318863868713
+      },
+      {
+        "name": "lm_head.weight",
+        "relative_l2_error": 0.0,
+        "max_absolute_error": 0.0,
+        "reference_l2": 6195.71728515625
+      },
+      {
+        "name": "embed.weight",
+        "relative_l2_error": 0.0,
+        "max_absolute_error": 0.0,
+        "reference_l2": 6151.93994140625
+      },
+      {
+        "name": "smear_gate.weight",
+        "relative_l2_error": 0.0,
+        "max_absolute_error": 0.0,
+        "reference_l2": 0.0
+      },
+      {
+        "name": "ngram_sink",
+        "relative_l2_error": 0.0,
+        "max_absolute_error": 0.0,
+        "reference_l2": 3.926431655883789
+      },
+      {
+        "name": "value_embed_grad",
+        "relative_l2_error": 0.0017405536491423845,
+        "reference_l2": 8.882366180419922
+      }
+    ]
+  },
+  "published_8xh100_early_stage_evidence": [
+    {
+      "file": "records/track_1_short/2026-08-30_ANVIL2/this_pr/01b2f094-4536-479c-b0dd-cb14eba4844c.txt",
+      "sha256": "7ae514d02d7cb9163511428f0becb9be9d881ea18c9c4030627e4c08413c7e8e",
+      "step50_ms": 1194,
+      "step300_ms": 5439,
+      "early_step_ms": 16.98
+    },
+    {
+      "file": "records/track_1_short/2026-08-30_ANVIL2/this_pr/2429792c-0d04-412a-8cde-304fba229b75.txt",
+      "sha256": "a60312f3001d650f91eca5ea8593cdfcef7706d2ec84ab367360204289d8009f",
+      "step50_ms": 1011,
+      "step300_ms": 5259,
+      "early_step_ms": 16.992
+    },
+    {
+      "file": "records/track_1_short/2026-08-30_ANVIL2/this_pr/2bb6ce75-69b1-4cb2-8a08-81ed90ce52cf.txt",
+      "sha256": "d6ab588392f9fe306a6512300bafa3f1e000f2d2c6b505dabe41eeb91117b29b",
+      "step50_ms": 1243,
+      "step300_ms": 5488,
+      "early_step_ms": 16.98
+    },
+    {
+      "file": "records/track_1_short/2026-08-30_ANVIL2/this_pr/2c83df42-68ad-46ea-879c-b874645a6a06.txt",
+      "sha256": "4c75bb3340fb424f22a33a65c5f794247b5eba4ba73e36548b79b8bf5b4dd335",
+      "step50_ms": 1041,
+      "step300_ms": 5287,
+      "early_step_ms": 16.984
+    },
+    {
+      "file": "records/track_1_short/2026-08-30_ANVIL2/this_pr/32a48562-f576-4d46-87cf-de771d1b3bf2.txt",
+      "sha256": "d94a1bcec6241e1d67b3fb97e8bb73acc84f6ef279edda4db57dd7bf389674b3",
+      "step50_ms": 1002,
+      "step300_ms": 5245,
+      "early_step_ms": 16.972
+    },
+    {
+      "file": "records/track_1_short/2026-08-30_ANVIL2/this_pr/3e2d26f1-b716-4907-a086-eadd6f1f68cb.txt",
+      "sha256": "9db9ddfaedb97d82070f1bbfcb63a13b0bd4eeee3828206cff218f6e19702062",
+      "step50_ms": 992,
+      "step300_ms": 5239,
+      "early_step_ms": 16.988
+    },
+    {
+      "file": "records/track_1_short/2026-08-30_ANVIL2/this_pr/3f5219bc-dc4f-4487-ba2b-5490716fba51.txt",
+      "sha256": "e47efdcffbd474cd84ae059d4f2ad3f416fe662249f796ca2acda95748537bdc",
+      "step50_ms": 1028,
+      "step300_ms": 5274,
+      "early_step_ms": 16.984
+    },
+    {
+      "file": "records/track_1_short/2026-08-30_ANVIL2/this_pr/4903f398-4370-434e-bf84-432dae91f6d2.txt",
+      "sha256": "52da6ef5920691a6b1f18da82fc3f431e32b1592c545e4e2f17129b1382d6aa0",
+      "step50_ms": 1018,
+      "step300_ms": 5262,
+      "early_step_ms": 16.976
+    },
+    {
+      "file": "records/track_1_short/2026-08-30_ANVIL2/this_pr/65442a11-b41b-4452-b7c6-7671020f4c64.txt",
+      "sha256": "df33cf9933dc43e313e93c8c39f113cf9360dd2be55cfe5325b291b478a1e197",
+      "step50_ms": 1065,
+      "step300_ms": 5311,
+      "early_step_ms": 16.984
+    },
+    {
+      "file": "records/track_1_short/2026-08-30_ANVIL2/this_pr/730cd735-f8a4-48ec-8a18-2b39a55a20bd.txt",
+      "sha256": "a59d248a29c92b24a5a3af3bccb552851fb79b785571d983cae85ef7963cc86d",
+      "step50_ms": 1016,
+      "step300_ms": 5258,
+      "early_step_ms": 16.968
+    },
+    {
+      "file": "records/track_1_short/2026-08-30_ANVIL2/this_pr/777be95b-c782-4c49-b7b3-42b6d6838e21.txt",
+      "sha256": "f30bf879dfae432e2de4fa9a78c705ab8bd3dcf7220e9fab7f3e55a51f8c8a3b",
+      "step50_ms": 1097,
+      "step300_ms": 5343,
+      "early_step_ms": 16.984
+    },
+    {
+      "file": "records/track_1_short/2026-08-30_ANVIL2/this_pr/7a85842f-0b40-4f64-bdbc-2a62449a41c0.txt",
+      "sha256": "e0d7b945a842f7fb63e5253212431809209a8bd5ec4bdd3a08805c349b5385ca",
+      "step50_ms": 1004,
+      "step300_ms": 5251,
+      "early_step_ms": 16.988
+    },
+    {
+      "file": "records/track_1_short/2026-08-30_ANVIL2/this_pr/8af1432c-95f1-4598-9b78-aaf4b739c272.txt",
+      "sha256": "711632eb52b17e5cacfb4a4e159df365d84b52d63c5e3f687b50b3ef3c21e13e",
+      "step50_ms": 1017,
+      "step300_ms": 5263,
+      "early_step_ms": 16.984
+    },
+    {
+      "file": "records/track_1_short/2026-08-30_ANVIL2/this_pr/b98803cb-3143-463a-9276-00a4ec14a849.txt",
+      "sha256": "bc9af56fdbeda2fa1244485436649f1891c8c3db9dadff260ca3855d300f3734",
+      "step50_ms": 1456,
+      "step300_ms": 5701,
+      "early_step_ms": 16.98
+    },
+    {
+      "file": "records/track_1_short/2026-08-30_ANVIL2/this_pr/d84fc2dc-fbe2-47f5-a838-67fb1a2bf8f1.txt",
+      "sha256": "786a7a2d7a7dfab9f5a58c2e8a15577c17d42cae3d808c8b97ab02cb6dcd7f73",
+      "step50_ms": 1000,
+      "step300_ms": 5245,
+      "early_step_ms": 16.98
+    },
+    {
+      "file": "records/track_1_short/2026-08-30_ANVIL2/this_pr/d992e8d8-04fe-4b2a-bc82-6c60ad599573.txt",
+      "sha256": "65b67d73d3b0a5aac64a5c176ce21e7434795fe6dcea22641e322279ab78000d",
+      "step50_ms": 1076,
+      "step300_ms": 5320,
+      "early_step_ms": 16.976
+    },
+    {
+      "file": "records/track_1_short/2026-08-30_ANVIL2/this_pr/fb77a50d-6628-4fcd-92b3-43a6d6e717b4.txt",
+      "sha256": "6b0ab39b678d4e23ad2b072df8cc574cd70dce6088575a3f47c87704198bfa21",
+      "step50_ms": 984,
+      "step300_ms": 5228,
+      "early_step_ms": 16.976
+    }
+  ]
+}
