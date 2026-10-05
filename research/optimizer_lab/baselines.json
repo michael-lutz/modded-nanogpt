@@ -25,7 +25,21 @@
     "source_commit": "a3e9f12ba17d83ace5dc6915b838642561898d90"
   },
   "track1_record92": {
-    "status": "not_run"
+    "status": "completed_adapted_pilot",
+    "seed": 0,
+    "n": 1,
+    "steps": 1194,
+    "scored_loss": 3.280118829011917,
+    "training_seconds": 393.04605764799635,
+    "total_elapsed_seconds": 870.271244237,
+    "startup_and_warmup_seconds": 445.5336760759965,
+    "validation_seconds": 18.97464325898909,
+    "source_commit": "4ea6b937337a4889b8cfe3f38a93d120048d8f71",
+    "certified_source_reproduction": false,
+    "statistical_parity": false,
+    "single_run_below_nominal_target": false,
+    "evidence": "benchmarks/FULL_RUN_2026_10_05.json",
+    "evaluation_mode": "eager_bf16_full_validation"
   },
   "track2": {
     "status": "not_run"
@@ -33,7 +47,8 @@
   "limitations": [
     "Single-seed pilots, not statistical parity.",
     "GH200 speed is not official eight-H100 timing.",
-    "No optimizer critical-path profile or warm-cache startup measurement yet.",
-    "Track 1 startup attempts failed twice before training; no trained seed was discarded."
+    "#92 is a full-schedule adapted descendant run with modified attention and reduction numerics, not certified-source reproduction.",
+    "No full-schedule optimizer critical-path profile or warm-cache full-run repeat yet.",
+    "#91 had two pre-training startup failures; #92 had one pre-training validation-preflight failure; no trained seed was discarded."
   ]
 }

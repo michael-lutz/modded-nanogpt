@@ -10,12 +10,13 @@ This is a research protocol and evidence index, not an implemented GPU experimen
 - [Machine-readable upstream history](history.json)
 - [GH200 full-table CPU-memory feasibility measurement](benchmarks/RESULTS_2026_10_05.md)
 - [GH200 complete training-step pilot and HBM A/B](benchmarks/TRAINING_SMOKE_2026_10_05.md)
+- [Full 1194-step GH200 adaptation: time and final loss](benchmarks/FULL_RUN_2026_10_05.md)
 
 ## Status (2026-10-05)
 
 - Track 3 #46: one GH200 pilot completed, seed 0, 2690 steps, scored EMA loss 3.27813, training 6246.827 s, end-to-end 6483 s. Not multi-seed parity; not the benchmark's one-run significance margin.
 - Track 1 #91: exact merged source at `a3e9f12ba17d83ace5dc6915b838642561898d90`, one GH200 pilot completed, seed 0, 1290 steps, loss 3.2772, training 776.415 s, end-to-end 1642 s. Not official 8xH100 timing or multi-seed parity.
-- Track 1 #92: full certified reproduction NOT run. A subsequent adapted 20-step early-stage pilot runs successfully with the CPU-resident table; see the complete-step report. Current root code is a later descendant, not byte-identical certified #360. Follow-up #373 added canonical masking, changed init RNG through pruning, and changed sparse gradient storage. Pin a certified source artifact before claiming exact reproduction.
+- Track 1 #92: full adapted descendant pilot completed, seed 0, 1194 steps, validation loss 3.280118829, training loop 393.046 s, launch-to-exit 870.271 s. Just above the nominal 3.28 target. Not certified-source reproduction or statistical parity. The descendant differs in canonical masking, init RNG/pruning and sparse gradient storage; the GH200 harness additionally adapts attention and gradient reduction.
 - Track 2: NOT run. Hardware feasibility, local runtime and optimizer transfer are unmeasured.
 - GH200 table-subsystem benchmark: full 129.95 GB CPU-bound table, about 6-10.5 ms/global-step amortized service cost in two runs. Synthetic gradients; no Transformer training or full #92 parity. See linked report.
 - No cross-track rank correlation or full-schedule optimizer critical-path profile exists yet. The short pilot measures partial-stage warm-cache startup, not startup for the official full schedule.

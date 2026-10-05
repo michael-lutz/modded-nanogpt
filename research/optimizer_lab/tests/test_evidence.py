@@ -18,7 +18,11 @@ class EvidenceTests(unittest.TestCase):
         d=json.loads((ROOT/'baselines.json').read_text())
         self.assertEqual(d['track3_record46']['steps'],2690)
         self.assertAlmostEqual(d['track1_record91']['training_seconds'],776.415)
-        self.assertEqual(d['track1_record92']['status'],'not_run')
+        self.assertEqual(d['track1_record92']['status'],'completed_adapted_pilot')
+        self.assertEqual(d['track1_record92']['steps'],1194)
+        self.assertFalse(d['track1_record92']['certified_source_reproduction'])
+        self.assertFalse(d['track1_record92']['statistical_parity'])
+        self.assertAlmostEqual(d['track1_record92']['scored_loss'],3.280118829011917)
     def test_cost(self):
         r=cost.estimate(.95,.1,1.5)
         self.assertAlmostEqual(r['training_time_ratio'],.9975)

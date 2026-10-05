@@ -1,0 +1,226 @@
+{
+  "scope": "Full 1194-step single-GH200 #92-descendant adaptation; not certified #360.\nFull CPU-resident 129.95GB ngram table, 8 serial logical ranks, full stage schedule,\nupstream ANVIL/Adam/tail averaging, BOS training packing, 10,485,760-token validation.\nDifferences: padded ARM CUDA12 FA3; serial dense-gradient averaging; FP32 ngram\nmerge; FP8 delayed amax shared across microbatches; corrected descendant canon mask.\n",
+  "status": "completed",
+  "seed": 0,
+  "full_schedule": true,
+  "steps_requested": 1194,
+  "upstream_commit": "4ea6b937337a4889b8cfe3f38a93d120048d8f71",
+  "source_sha256": "bb242d539a8bc0f0a980f9a1679a85e041e917d92d7df0f7882e6fa85ef78ff9",
+  "attention": {
+    "kernel_revision": "7cb368cf8278b583132eb72cbf312d54586df2e2",
+    "binary_sha256": "474882b6dc65354889a9ac6489b3ffb9e449b74db1610f032e6b94d9d5788874",
+    "modification": "zero-pad unequal qk/v heads to same width; preserve explicit softmax scale; slice output to original v width"
+  },
+  "stage_boundaries": [
+    [
+      0,
+      320
+    ],
+    [
+      320,
+      681
+    ],
+    [
+      681,
+      1107
+    ],
+    [
+      1107,
+      1174
+    ],
+    [
+      1174,
+      1194
+    ]
+  ],
+  "val_tokens_requested": 10485760,
+  "table_bytes": 129950023680,
+  "timing": {
+    "initial_eval_preflight_seconds": 1.0655913920054445,
+    "startup_and_warmup_seconds": 445.5336760759965,
+    "training_loop_seconds": 393.04605764799635,
+    "tail_mask_finalize_seconds": 0.03550086099130567,
+    "validation_seconds": 18.97464325898909,
+    "process_seconds_through_validation": 859.9425535820046
+  },
+  "stage_steps": [
+    {
+      "stage": 0,
+      "steps": 320,
+      "seconds_excluding_cycle_pull": 83.98256997884891
+    },
+    {
+      "stage": 1,
+      "steps": 361,
+      "seconds_excluding_cycle_pull": 85.49111871620698
+    },
+    {
+      "stage": 2,
+      "steps": 426,
+      "seconds_excluding_cycle_pull": 154.33738451109093
+    },
+    {
+      "stage": 3,
+      "steps": 67,
+      "seconds_excluding_cycle_pull": 24.664686007017735
+    },
+    {
+      "stage": 4,
+      "steps": 20,
+      "seconds_excluding_cycle_pull": 3.2512385599839035
+    }
+  ],
+  "deviations": [
+    "Descendant source, not certified record source; canonical mask follows corrected descendant",
+    "Padded stock ARM CUDA12 FA3; floating-point reduction order differs",
+    "Eight serial microbatches, explicit gradient averaging, shared delayed FP8 amax across logical ranks",
+    "FP32 ngram gradient aggregation then BF16 cast; not official FP16/local and BF16/distributed merge",
+    "CPU candidate/packing lookahead is one background thread; not original eight-rank pipeline",
+    "Evaluation compute reported separately and in full wall clock; not an official leaderboard timer",
+    "Final validation uses eager BF16 model, not the official compiled evaluation; intermediate rounding may differ."
+  ],
+  "initial_validation_loss": 10.829501152038574,
+  "last_step": 1194,
+  "training_shards": [
+    "fineweb_train_000001.bin",
+    "fineweb_train_000002.bin",
+    "fineweb_train_000003.bin",
+    "fineweb_train_000004.bin"
+  ],
+  "table_update_events": 382,
+  "validation_loss": 3.280118829011917,
+  "gpu_peak_allocated_bytes": 36721787904,
+  "gpu_peak_reserved_bytes": 95091163136,
+  "completed": true,
+  "table_cpu_only_verified": true,
+  "launch_to_exit_seconds": 870.271244237,
+  "started_utc": "2026-10-05T13:39:48Z",
+  "finished_utc": "2026-10-05T13:54:18Z",
+  "training_tokens": 328663040,
+  "nominal_target": 3.28,
+  "single_run_below_nominal_target": false,
+  "statistical_parity": false,
+  "certified_source_reproduction": false,
+  "hardware": {
+    "gpu": "NVIDIA GH200 480GB",
+    "driver": "570.195.03",
+    "torch": "2.10.0+cu128",
+    "triton": "3.6.0",
+    "physical_gpus": 1,
+    "logical_ranks": 8
+  },
+  "source_manifest": {
+    "research/optimizer_lab/runners/gh200_record92.py": "bb242d539a8bc0f0a980f9a1679a85e041e917d92d7df0f7882e6fa85ef78ff9",
+    "research/optimizer_lab/benchmarks/gh200_training_smoke.py": "dfa34a6156141089cf467b60986abc74d6dbb07ed8d61dc356bde0f760df034c",
+    "research/optimizer_lab/benchmarks/gh200_table_path.py": "b171e07689df6581f958732717504f56d2fe3cd82a422f83da33e73435cb708e",
+    "research/optimizer_lab/benchmarks/gh200_trace_plan.py": "6b74a9b955551b3c328d72d8f0d54c359b7615aee8ee7adfb65d0ac848714e2e"
+  },
+  "validation_batches": {
+    "losses": [
+      3.237076759338379,
+      3.2948882579803467,
+      3.332345485687256,
+      3.2868576049804688,
+      3.2869107723236084,
+      3.403756856918335,
+      3.243295192718506,
+      3.2736563682556152,
+      3.3144307136535645,
+      3.283949851989746,
+      3.2256436347961426,
+      3.3110246658325195,
+      3.401792526245117,
+      3.2733638286590576,
+      3.2364211082458496,
+      3.242659568786621,
+      3.249197006225586,
+      3.38519287109375,
+      3.3178751468658447,
+      3.267033100128174,
+      3.3964242935180664,
+      3.274529218673706,
+      3.2556967735290527,
+      3.174003839492798,
+      3.2732088565826416,
+      3.208980083465576,
+      3.24678897857666,
+      3.3043551445007324,
+      3.2456555366516113,
+      3.2766194343566895,
+      3.3165807723999023,
+      3.349654197692871,
+      3.2944271564483643,
+      3.1939849853515625,
+      3.2414016723632812,
+      3.245922565460205,
+      3.2876334190368652,
+      3.2070517539978027,
+      3.2403860092163086,
+      3.3040771484375
+    ],
+    "tokens_per_batch": 262144
+  },
+  "training_step_statistics": [
+    {
+      "stage": 0,
+      "steps": 320,
+      "tokens_per_global_step": 131072,
+      "inner_step_mean_seconds": 0.26244553118390285,
+      "inner_step_median_seconds": 0.13146733100438723,
+      "inner_step_max_seconds": 41.949193851003656
+    },
+    {
+      "stage": 1,
+      "steps": 361,
+      "tokens_per_global_step": 262144,
+      "inner_step_mean_seconds": 0.2368175033689944,
+      "inner_step_median_seconds": 0.23527321199071594,
+      "inner_step_max_seconds": 0.28842050199455116
+    },
+    {
+      "stage": 2,
+      "steps": 426,
+      "tokens_per_global_step": 393216,
+      "inner_step_mean_seconds": 0.3622943298382416,
+      "inner_step_median_seconds": 0.36622767350490903,
+      "inner_step_max_seconds": 0.3949377090029884
+    },
+    {
+      "stage": 3,
+      "steps": 67,
+      "tokens_per_global_step": 327680,
+      "inner_step_mean_seconds": 0.3681296418957871,
+      "inner_step_median_seconds": 0.36443642200902104,
+      "inner_step_max_seconds": 0.4308001099998364
+    },
+    {
+      "stage": 4,
+      "steps": 20,
+      "tokens_per_global_step": 131072,
+      "inner_step_mean_seconds": 0.16256192799919517,
+      "inner_step_median_seconds": 0.16023899899300886,
+      "inner_step_max_seconds": 0.17596800001047086
+    }
+  ],
+  "timing_boundaries": {
+    "training_loop": "Includes real CPU packing/candidate lookahead, uploads, row service, complete forward/backward/update/tail ticks, syncs, logging, and first-update stall; excludes upfront compilation and final validation.",
+    "inner_step": "Wall interval inside global-step body. Excludes some outer cycle work; GPU row pulls queued before the timer can still overlap this interval. Not a pure compute profiler.",
+    "validation": "Data reading, hashing/pulling and actual full-size BF16 validation; no separate charge-and-repeat pull as in official leaderboard timer.",
+    "end_to_end": "Launch shell through process teardown; includes startup, compilation, initial validation preflight, all training, finalization, final validation and cleanup."
+  },
+  "first_update_stall_seconds": 41.949193851003656,
+  "prior_preflight_failure": {
+    "training_steps": 0,
+    "seconds": 15.739002753,
+    "cause": "Initial TrainingManager schedule was not applied before preflight validation; fixed before the successful run."
+  },
+  "limitations": [
+    "Single seed, not statistical parity; loss slightly above nominal target.",
+    "Adapted source/numerics, not certified #360.",
+    "Cold compiler-cache directory for this full harness, but Triton cache reused from pilots; not fully cold all-cache timing.",
+    "A first-update 41.95-second stall is included; cause not established by a profiler.",
+    "No warmed-cache full-run repeat yet.",
+    "No full checkpoint saved; resuming requires model AND full ngram table/state, not model parameters alone.",
+    "Compiled-evaluation numerical equivalence is not verified; do not attribute the loss gap to the optimizer or CPU backing alone."
+  ]
+}

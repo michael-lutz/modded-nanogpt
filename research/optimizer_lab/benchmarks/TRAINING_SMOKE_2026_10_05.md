@@ -3,6 +3,8 @@
 Date: 2026-10-05. **Feasibility/timing pilot of an adapted #92 descendant, not a
 certified #92 reproduction or a completed training-to-quality run.**
 
+Subsequent result: [the full schedule and validation now completed](FULL_RUN_2026_10_05.md).
+
 ## Answer
 
 Yes: real forward, backward, dense ANVIL/Adam, sparse table Adam and CPU writeback
@@ -122,7 +124,9 @@ subtract cumulative training time at step 50 from step 300, divide by 250, then
 average across logs. Range 16.968-16.992 ms. This isolates the same early-stage
 batch, rather than comparing our early stage to the all-stage average. Reference:
 [certified #92 source/log pool](../../../records/track_1_short/2026-08-30_ANVIL2/this_pr/).
-The official 39.914-second full-run mean includes different stages and validation;
+The official 39.914-second training-section mean includes different stages, tail
+finalization and validation data/row preparation, but excludes validation forward
+computation and compilation;
 **do not multiply our early-stage timing by 1,194 to predict the full run.**
 
 - [Curated raw measurements and provenance](training_results_2026_10_05.json)
